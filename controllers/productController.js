@@ -5,7 +5,7 @@ var productController = {
         res.render('product', {producto: db.productos});
     },
     create: function(req, res) {
-        res.render('product-add');
+        res.render('product-add', {usuario: db.usuario});
     }
 }
 
