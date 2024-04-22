@@ -1,27 +1,27 @@
 const db = {
     "usuario":{
-    "email": "victoria@agustina.com",
-    "usuario": "Sofia",
-    "password": "123456",
+    "email": "agustinaschvartzberg@gmail.com",
+    "usuario": "Agustina",
+    "password": "12345",
     "fechaNac": "2000-01-01",
-    "nroDoc": "40123456",
-    "foto": "/images/users/profile.jpg"
+    "nroDoc": "46288481",
+    "foto": "/images/users/foto.png"
     },
     "productos": [
     {
-        "imagen": "camisa1.jpg",
-        "nombre": "Camisa Algodón Premium",
-        "descripcion": "Camisa de manga larga con tejido de algodón premium",
+        "imagen": "/images/products/top1.webp",
+        "nombre": "Alaska",
+        "descripcion": "Top musculoso con volados",
         "comentarios": [
             {
-                "nombre": "Marcela",
-                "comentario": "Me encanta cómo queda esta camisa, es muy elegante.",
-                "imagen": "/images/users/marcela.jpeg"
+                "nombre": "Agustina",
+                "comentario": "que lindo",
+                "imagen": "/images/users/foto.png"
             },
             {
-                "nombre": "Pablo",
-                "comentario": "La calidad del algodón es excepcional, se siente muy suave.",
-                "imagen": "/images/users/pablo.jpeg"
+                "nombre": "Victoria",
+                "comentario": "que bueno",
+                "imagen": "/images/users/foto.png"
             }
         ]
     },
