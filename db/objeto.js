@@ -1,12 +1,4 @@
 const db = {
-    "usuario":{
-    "email": "agustinaschvartzberg@gmail.com",
-    "usuario": "Agustina",
-    "password": "12345",
-    "fechaNac": "2000-01-01",
-    "nroDoc": "46288481",
-    "foto": "/images/users/foto.png"
-    },
     "productos": [
     {
         "imagen": "/images/products/top1.webp",
