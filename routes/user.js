@@ -3,7 +3,6 @@ var router = express.Router();
 
 var userController = require('../controllers/userController');
 
-/* GET users listing. */
 router.get('/login', userController.login);
 
 router.get('/register', userController.register);
