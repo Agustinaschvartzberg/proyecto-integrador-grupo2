@@ -1,3 +1,6 @@
+//const db= require('../database/models');
+//const movies= db.Movie;
+
 const db = require('../db/objeto');
 
 const userController = {

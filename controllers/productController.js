@@ -1,3 +1,7 @@
+//const db= require('../database/models');
+//const movies= db.Movie;
+
+
 var db = require('../db/objeto');
 
 var productController = {

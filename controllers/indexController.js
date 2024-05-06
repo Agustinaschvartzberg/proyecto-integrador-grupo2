@@ -1,3 +1,6 @@
+//const db= require('../database/models');
+//const movies= db.Movie;
+
 const indexController = {
     index: function(req, res) {
         res.render('index');
