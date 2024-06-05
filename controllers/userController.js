@@ -1,7 +1,5 @@
-//const db= require('../database/models');
-//const movies= db.Movie;
-
-const db = require('../db/objeto');
+const db= require('../database/models');
+const usuario= db.Usario;
 
 const userController = {
     login: function(req, res) {

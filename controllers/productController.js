@@ -1,8 +1,8 @@
-//const db= require('../database/models');
-//const movies= db.Movie;
+const db= require('../database/models');
+const producto= db.Producto;
 
 
-var db = require('../db/objeto');
+//var db = require('../db/objeto');
 
 var productController = {
     product: function(req, res) {
