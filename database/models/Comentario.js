@@ -9,17 +9,6 @@ module.exports = function(sequelize, DataTypes) {
         texto: {
             type: DataTypes.STRING(100),
         },
-        createdAt: {
-            type: DataTypes.DATE,
-        },
-        updatedAt: {
-            type: DataTypes.DATE,
-
-        },
-        deletedAt: {
-            type: DataTypes.DATE,
-        },
-        
         productos_id: {
             type: dataTypes.INTEGER,
         },

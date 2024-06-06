@@ -20,17 +20,6 @@ module.exports = function(sequelize, DataTypes) {
         },
         foto: {
             type: DataTypes.STRING(500),
-        },
-        createdAt: {
-            type: DataTypes.DATE,
-
-        },
-        updatedAt: {
-            type: DataTypes.DATE,
-
-        },
-        deletedAt: {
-            type: DataTypes.DATE,
         }
     };
     const config = {

@@ -16,17 +16,6 @@ module.exports = function(sequelize, DataTypes) {
         descripcion: {
             type: DataTypes.STRING(100),
         },
-        createdAt: {
-            type: DataTypes.DATE,
-        },
-       //y esto tampoc se si va o on
-        updatedAt: {
-            type: DataTypes.DATE,
-
-        },
-        deletedAt: {
-            type: DataTypes.DATE,
-        },
         usuario_id:{
             type: DataTypes.INTEGER,
         }
