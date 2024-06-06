@@ -1,15 +1,15 @@
 const db= require('../database/models');
-const producto= db.Producto;
+const product= db.Producto;
 
-
-//var db = require('../db/objeto');
-
-var productController = {
+const productController = {
     product: function(req, res) {
-        res.render('product', {producto: db.productos});
+        producto.findAll.then(function(producto){
+            res.render('product', {producto: producto})
+
+        })
     },
     create: function(req, res) {
-        res.render('product-add', {usuario: db.usuario});
+        res.render('product-add');
     }
 }
 

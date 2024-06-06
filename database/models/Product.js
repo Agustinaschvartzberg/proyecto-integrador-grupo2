@@ -26,9 +26,12 @@ module.exports = function(sequelize, DataTypes) {
         },
         deletedAt: {
             type: DataTypes.DATE,
+        },
+        usuario_id:{
+            type: DataTypes.INTEGER,
         }
 
-        //no se si agregar aca el usario_id y el product_id
+
     };
     const config = {
         tableName: 'Productos',

@@ -18,6 +18,14 @@ module.exports = function(sequelize, DataTypes) {
         },
         deletedAt: {
             type: DataTypes.DATE,
+        },
+        
+        productos_id: {
+            type: dataTypes.INTEGER,
+        },
+        
+        usuarios_id:{
+            type: dataTypes.INTEGER,
         }
     };
     const config = {
