@@ -10,17 +10,18 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING(100),
         },
         productos_id: {
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
         },
         
         usuarios_id:{
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
         }
     };
     const config = {
         tableName: 'comentarios',
         timestamps: true,
-        underscored: true
+        underscored: true,
+        async: true
     };
     const Comentario = sequelize.define(alias, cols, config);
     return Comentario;

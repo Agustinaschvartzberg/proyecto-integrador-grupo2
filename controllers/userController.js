@@ -1,3 +1,4 @@
+const db=require("../db/objeto")
 const db= require('../database/models');
 const user= db.Usario;
 
@@ -12,14 +13,14 @@ const userController = {
         res.render('register');
     },
     profile: function(req, res) {
-        const id=req.parms.id
-        user.findByPk(id)
-        .then(function(usuario){
-            res.render('profile', {usuario: usuario});
-        })
-        .catch(function(err){
-            res.send(err);
-        })
+        //const id=req.parms.id
+         //user.findByPk(id)
+        // .then(function(usuario){
+            res.render('profile', {usuario: db.usuario});
+       // })
+       // .catch(function(err){
+           // res.send(err);
+       // })
 
             
         
