@@ -44,7 +44,7 @@ CREATE TABLE `comentarios` (
 -- Volcado de datos para la tabla `comentarios`
 --
 
-INSERT INTO `comentarios` (`id`, `texto`, `createdAt`, `updatedAt`, `deletedAt`, `productos_id`, `usuarios_id`) VALUES
+INSERT INTO `comentarios` (`id`, `texto`, `created_at`, `updated_at`, `deleted_at`, `productos_id`, `usuarios_id`) VALUES
 (1, 'que lindo', '2024-04-15 20:26:05', '2024-04-15 20:26:05', NULL, 15, 1),
 (5, 'que bueno', '2024-04-15 20:27:07', '2024-04-15 20:27:07', NULL, 15, 2),
 (6, 'que bueno', '2024-04-15 20:27:14', '2024-04-15 20:27:14', NULL, 15, 3),
@@ -96,7 +96,7 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id`, `foto`, `producto`, `descripcion`, `createdAt`, `updatedAt`, `deletedAt`, `usuario_id`) VALUES
+INSERT INTO `productos` (`id`, `foto`, `producto`, `descripcion`, `created_at`, `updated_at`, `deleted_at`, `usuario_id`) VALUES
 (15, 'top2.png', 'ushuaia', 'top crop animal print', '2024-04-15 19:47:14', '2024-04-15 19:47:14', NULL, 1),
 (16, 'top1.png', 'alaska', 'top musculoso con volados', '2024-04-15 19:47:20', '2024-04-15 19:47:20', NULL, 2),
 (17, 'top3.png', 'rio', 'top largo con volados', '2024-04-15 19:47:25', '2024-04-15 19:47:25', NULL, 3),
@@ -130,7 +130,7 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `email`, `password`, `fecha`, `dni`, `foto`, `createdAt`, `updatedAt`, `deletedAt`) VALUES
+INSERT INTO `usuarios` (`id`, `email`, `password`, `fecha`, `dni`, `foto`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 'agustinaschvartzberg@gmail.com', '12345', '2024-04-15', 46288481, 'foto.png', '2024-04-15 18:02:40', '2024-04-15 18:02:40', NULL),
 (2, 'agustinaschvartzberg@gmail.com', '12345', '2024-04-15', 46288481, 'foto.png', '2024-04-15 18:07:49', '2024-04-15 18:07:49', NULL),
 (3, 'sattas@gmail.com', '67890', '2024-04-15', 46288482, 'foto.png', '2024-04-15 18:08:42', '2024-04-15 18:08:42', NULL),
