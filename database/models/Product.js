@@ -29,6 +29,14 @@ module.exports = function(sequelize, DataTypes) {
         async: true
     };
     const Producto = sequelize.define(alias, cols, config);
+    Producto.belongsTo(sequelize.models.Usuario, {
+        as: "usuario",
+        foreignKey: "usuario_id",
+      });
+      Producto.hasMany(sequelize.models.Comentario, {
+        as: "comentarios",
+        foreignKey: "productos_id",
+      });
     return Producto;
 };
 
