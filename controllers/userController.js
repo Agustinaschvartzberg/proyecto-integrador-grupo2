@@ -39,16 +39,44 @@ const userController = {
         });
     },
     profile: function (req, res) {
-      //const id=req.parms.id
-      //user.findByPk(id)
-      // .then(function(usuario){
-      res.render("profile", { usuario: db.usuario });
-      // })
-      // .catch(function(err){
-      // res.send(err);
-      // })
+      const id=req.parms.id
+      user.findByPk(id)
+      .then(function(usuario){
+      res.render("profile", { usuario: usuario });
+       })
+      .catch(function(err){
+      res.send(err);
+       })
     },
+    login: function (req, res) {
+        user
+          .findOne({
+            where: {
+              email: req.body.email,
+            },
+          })
+          .then(function (usuario) {
+            if (usuario) {
+              if (bcrypt.compareSync(req.body.password, usuario.password)) {
+                req.session.usuario = usuario;
+                if (req.body.remember) {
+                  res.cookie("user", usuario.id, { maxAge: 60000 });
+                }
+    
+                res.redirect("/profile");
+              } else {
+                res.send("Contraseña incorrecta");
+              }
+            } else {
+              res.send("Usuario no encontrado");
+            }
+          })
+          .catch(function (err) {
+            res.send(err);
+          });
+      },
   };
+
   
   module.exports = userController;
   
