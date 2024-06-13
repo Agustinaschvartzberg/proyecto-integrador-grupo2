@@ -75,6 +75,11 @@ const userController = {
             res.send(err);
           });
       },
+      logout: function (req, res) {
+        req.session.destroy();
+        res.clearCookie("user");
+        res.redirect("/");
+      },
   };
 
   
