@@ -7,6 +7,8 @@ var cookieParser = require('cookie-parser');
 var router_index = require('./routes/index');
 var router_product = require('./routes/products');
 
+const db = require('./database/models');
+
 var app = express();
 app.use(logger('dev'));
 app.use(express.json());

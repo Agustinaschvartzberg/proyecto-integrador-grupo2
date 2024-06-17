@@ -31,11 +31,16 @@ fs
     db[model.name] = model;
   });
 
-Object.keys(db).forEach(modelName => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
-  }
-});
+  Object.keys(db).forEach(modelName => {
+    try {
+      if (db[modelName].associate) {
+        db[modelName].associate(db);
+      }
+    } catch (error) {
+      console.error(`Error associating model ${modelName}:`, error);
+    }
+  });
+ 
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
