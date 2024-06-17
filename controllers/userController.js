@@ -1,5 +1,5 @@
 const db=require("../database/models")
-const db= require('bcryptjs');
+const bcrypt= require('bcryptjs');
 const user= db.Usario;
 
 const userController = {
