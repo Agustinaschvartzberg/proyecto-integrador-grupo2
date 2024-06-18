@@ -1,18 +1,22 @@
 const db= require('../database/models');
 
 const indexController = {
-    index: function(req, res) {
-        db.Producto.findAll({})
-           .then(function(product) {
-                res.render('index', { productos: productos })
-            })
-           .catch(function(error) {
-                console.log(error)
-            })
-    }, 
-    search: function(req, res) {
-        res.render('search-results')
-    }
-};
+    index: function (req, res) {
+        db.Producto.findAll({include: [ { association: 'usuario' }]})
 
-module.exports = indexController;
+          .then(function (result) {
+                          
+              return res.render('index', { productos:productos})
+            } 
+          )
+          .catch(function (error) {
+            console.log(error)
+          })
+          },
+    }
+
+module.exports = indexController; 
+   
+// search: function(req, res){
+ //       res.render('search-results')
+ //   }
