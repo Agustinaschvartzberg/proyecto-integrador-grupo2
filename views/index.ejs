@@ -2,6 +2,11 @@
 <html lang="es">
 <%- include('partials/head') %>
 	<body>
+		<% if(locals.usuario != undefined) { %>
+			<%- include('./partials/headerLogueado.ejs') %>
+		<% } else { %>
+	   <%- include('./partials/header.ejs') %>
+	   <% } %>
 		<%- include('partials/header') %>
 			<div class="banner">
 				<img src="/images/banner.png" alt="Banner de ofertas">
@@ -13,128 +18,91 @@
 					</div>
 					<div class="col-12 col-sm-6 col-lg-3">
 						<section class="product-box">
+							<% for (let i = lista.length - 1; i >= lista.length - 4; i--) { %>
 							<a href="/product">
 								<figure class="product-box_image">
-									<img src="/images/products/top1.webp" alt="cafetera moulinex">
+									<a href="/productos/detalle/id/<%=lista[i].id%>">
+
+										<img src="<%= lista[i].photo %>" alt="<%= lista[i].producto %>">										</a>
+									
 								</figure>
 								<article class="product-box_data">
-									<h2>Alaska</h2>
-									<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur,
-										adipisicing elit. Eaque delectus ex</p>
-									<p>Comentarios: 12</p>
+									<h2>
+										<a href="/productos/detalle/id/<%=lista[i].id%>">
+
+										<%= lista[i].producto %>
+										</a>
+									</h2>
+				
+									<p>
+										<%= lista[i].descripcion %>
+									</p>
+									<h5>
+										<a href ="/profile/<%=lista[i].usuario.username%>" >
+										<%= lista[i].usuario.username %>
+									</a>
+									</h5>	
 								</article>
 							</a>
 						</section>
 					</div>
+					<%} %>
 					<div class="col-12 col-sm-6 col-lg-3">
 						<section class="product-box">
+							<% for (let i = 3; i >= 0; i--) { %>
 							<a href="/product">
 								<figure class="product-box_image">
-									<img src="/images/products/top2.webp" alt="cafetera moulinex">
+									<img src="<%= lista2[i].photo %>" alt="<%= lista2[i].producto %>">
 								</figure>
 								<article class="product-box_data">
-									<h2>Ushuaia</h2>
-									<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur,
-										adipisicing elit. Eaque delectus ex</p>
-									<p>Comentarios: 12</p>
+									<h2>
+										<a href="/productos/detalle/id/<%=lista2[i].id%>">
+
+										<%= lista2[i].producto %>
+										</a>
+									</h2>
+				
+									<p>
+										<%= lista2[i].descripcion %>
+									</p>
+									<h5>
+										<a href ="/profile/<%=lista[i].usuario.username%>" >
+										<%= lista2[i].usuario.username %>
+									</a>
+									</h5>	
 								</article>
 							</a>
 						</section>
 					</div>
+					<%}%>
 					<div class="col-12 col-sm-6 col-lg-3">
 						<section class="product-box">
+							<% for (let i = 3; i >= 0; i--) { %>
 							<a href="/product">
 								<figure class="product-box_image">
-									<img src="/images/products/top3.webp" alt="cafetera moulinex">
+									<img src="<%= lista2[i].photo %>" alt="<%= lista2[i].producto %>">
 								</figure>
 								<article class="product-box_data">
-									<h2>Rio</h2>
-									<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur,
-										adipisicing elit. Eaque delectus ex</p>
-									<p>Comentarios: 12</p>
+									<h2>
+										<a href="/productos/detalle/id/<%=lista2[i].id%>">
+
+										<%= lista2[i].producto %>
+										</a>
+									</h2>
+				
+									<p>
+										<%= lista2[i].descripcion %>
+									</p>
+									<h5>
+										<a href ="/profile/<%=lista[i].usuario.username%>" >
+										<%= lista2[i].usuario.username %>
+									</a>
+									</h5>	
 								</article>
 							</a>
 						</section>
 					</div>
-					<div class="col-12 col-sm-6 col-lg-3">
-						<section class="product-box">
-							<a href="/product">
-								<figure class="product-box_image">
-									<img src="/images/products/top4.webp" alt="cafetera moulinex">
-								</figure>
-								<article class="product-box_data">
-									<h2>Peru</h2>
-									<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur,
-										adipisicing elit. Eaque delectus ex</p>
-									<p>Comentarios: 12</p>
-								</article>
-							</a>
-						</section>
-					</div>
+					<%} %>
 				</div>
-			</div>
-			<div class="container products-wrapper">
-				<div class="row">
-					<div class="col-12">
-						<h2 class="products-title">Más comentados</h2>
-					</div>
-					<div class="col-12 col-sm-6 col-lg-3">
-						<section class="product-box">
-							<a href="/product">
-								<figure class="product-box_image">
-									<img src="/images/products/top5.webp" alt="cafetera moulinex">
-								</figure>
-								<article class="product-box_data">
-									<h2>Jamaica</h2>
-									<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex</p>
-									<p>Comentarios: 12</p>
-								</article>
-							</a>
-						</section>
-					</div>
-					<div class="col-12 col-sm-6 col-lg-3">
-						<section class="product-box">
-							<a href="/product">
-								<figure class="product-box_image">
-									<img src="/images/products/top6.webp" alt="cafetera moulinex">
-								</figure>
-								<article class="product-box_data">
-									<h2>Buenos Aires</h2>
-									<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex</p>
-									<p>Comentarios: 12</p>
-								</article>
-							</a>
-						</section>
-					</div>
-					<div class="col-12 col-sm-6 col-lg-3">
-						<section class="product-box">
-							<a href="/product">
-								<figure class="product-box_image">
-									<img src="/images/products/top7.webp" alt="cafetera moulinex">
-								</figure>
-								<article class="product-box_data">
-									<h2>Miami</h2>
-									<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex</p>
-									<p>Comentarios: 12</p>
-								</article>
-							</a>
-						</section>
-					</div>
-					<div class="col-12 col-sm-6 col-lg-3">
-						<section class="product-box">
-							<a href="/product">
-								<figure class="product-box_image">
-									<img src="/images/products/top8.webp" alt="cafetera moulinex">
-								</figure>
-								<article class="product-box_data">
-									<h2>Nueva York</h2>
-									<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex</p>
-									<p>Comentarios: 12</p>
-								</article>
-							</a>
-						</section>
-					</div>
-				</div>
-			</div>
 			<%- include('partials/footer') %>
 	</body>
