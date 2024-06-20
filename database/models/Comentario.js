@@ -24,5 +24,14 @@ module.exports = function(sequelize, DataTypes) {
         async: true
     };
     const Comentario = sequelize.define(alias, cols, config);
+    Comentario.belongsTo(models.Product, {
+        as: 'productos',
+        foreignKey: 'id_post'
+    }),
+    Comentario.belongsTo(models.User, {
+        as: 'usuarios',
+        foreignKey: 'id_usuario' 
+    })
+}
     return Comentario;
-};
+

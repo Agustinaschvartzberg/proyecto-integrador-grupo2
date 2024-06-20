@@ -25,7 +25,7 @@ module.exports = function(sequelize, DataTypes) {
         photo: {
             type: DataTypes.STRING(500),
         }
-    };
+    };}
     const config = {
         tableName: 'usuarios',
         timestamps: true,
@@ -33,6 +33,11 @@ module.exports = function(sequelize, DataTypes) {
         async: true
     };
     const Usuario = sequelize.define(alias, cols, config);
+    Usuario.associate = function(models){
+        Usuario.hasMany(models.Products, {
+            as: "productos",
+            foreignKey: "id_usuario"
+        })
     return Usuario;
-};
+    }
 

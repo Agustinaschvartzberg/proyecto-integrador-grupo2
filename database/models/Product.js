@@ -29,6 +29,18 @@ module.exports = function(sequelize, DataTypes) {
         async: true
     };
     const Producto = sequelize.define(alias, cols, config);
+    Producto.associate = function(models){
+        Producto.belongsTo(models.User, {
+            as: 'usuario',
+            foreignKey: 'id_usuario'
+        }),
+        //la foreignKey: conectar a las dos columnas (en este caso al usuario con su id, relaciona ambas tablas)
+        //as define un alias para usar en el controlador 
+        Producto.hasMany(models.Comentario, {
+            as: 'comentarios',
+            foreignKey: 'id_post' 
+        })
+    } 
    
     return Producto
 };
