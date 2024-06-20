@@ -4,17 +4,17 @@ module.exports = function(sequelize, DataTypes) {
         id: {
             autoIncrement: true,
             primaryKey: true,
-            type: DataTypes.INTEGER
+            type: dataTypes.INTEGER
         },
         texto: {
-            type: DataTypes.STRING(100),
+            type: dataTypes.STRING(100),
         },
-        productos_id: {
-            type: DataTypes.INTEGER,
-        },
+        //productos_id: {
+           // type: DataTypes.INTEGER,
+        //},
         
         usuarios_id:{
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
         }
     };
     const config = {
@@ -23,15 +23,15 @@ module.exports = function(sequelize, DataTypes) {
         underscored: true,
         async: true
     };
-    const Comentario = sequelize.define(alias, cols, config);
-    Comentario.belongsTo(models.Product, {
+    const comentario = sequelize.define(alias, cols, config);
+    comentario.belongsTo(models.Producto, {
         as: 'productos',
-        foreignKey: 'id_post'
+        foreignKey: 'productos_id'
     }),
-    Comentario.belongsTo(models.User, {
+    comentario.belongsTo(models.Usuario, {
         as: 'usuarios',
-        foreignKey: 'id_usuario' 
+        foreignKey: 'usuarios_id' 
     })
 }
-    return Comentario;
+    return comentario;
 

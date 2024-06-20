@@ -4,26 +4,26 @@ module.exports = function(sequelize, DataTypes) {
         id: {
             autoIncrement: true,
             primaryKey: true,
-            type: DataTypes.INTEGER
+            type: dataTypes.INTEGER
         },
         nombre: {
-            type: DataTypes.STRING
+            type: dataTypes.STRING
 
         },   
         email: {
-            type: DataTypes.STRING(100),
+            type: dataTypes.STRING(100),
         },
         password: {
-            type: DataTypes.STRING(100),
+            type: decodeURIComponentataTypes.STRING(100),
         },
         date: {
-            type: DataTypes.DATE,
+            type: dataTypes.DATE,
         },
         dni: {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
         },
         photo: {
-            type: DataTypes.STRING(500),
+            type: dataTypes.STRING(500),
         }
     };}
     const config = {
@@ -32,12 +32,12 @@ module.exports = function(sequelize, DataTypes) {
         underscored: true,
         async: true
     };
-    const Usuario = sequelize.define(alias, cols, config);
-    Usuario.associate = function(models){
-        Usuario.hasMany(models.Products, {
+    const usuario = sequelize.define(alias, cols, config);
+    usuario.associate = function(models){
+        usuario.hasMany(models.Producto, {
             as: "productos",
-            foreignKey: "id_usuario"
+            foreignKey: "usuarios_id"
         })
-    return Usuario;
-    }
+    return usuario;
+}
 
