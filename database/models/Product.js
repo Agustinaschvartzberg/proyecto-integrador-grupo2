@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
             primaryKey: true,
             type: DataTypes.INTEGER
         },
-        foto: {
+        photo: {
             type: DataTypes.STRING(500),
         },
         producto: {
@@ -23,23 +23,12 @@ module.exports = function(sequelize, DataTypes) {
 
     };
     const config = {
-        tableName: 'Productos',
+        tableName: 'productos',
         timestamps: true,
         underscored: true,
         async: true
     };
     const Producto = sequelize.define(alias, cols, config);
-  
-    Producto.associate = function(model) {
-        Producto.belongsTo(model.Usuario, {
-        as: "usuario",
-        foreignKey: "usuario_id",
-      })
-        Producto.hasMany(model.Comentario, {
-        as: "comentarios",
-        foreignKey: "productos_id",
-      })
-    }
    
     return Producto
 };

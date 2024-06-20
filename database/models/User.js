@@ -6,24 +6,28 @@ module.exports = function(sequelize, DataTypes) {
             primaryKey: true,
             type: DataTypes.INTEGER
         },
+        nombre: {
+            type: DataTypes.STRING
+
+        },   
         email: {
             type: DataTypes.STRING(100),
         },
         password: {
             type: DataTypes.STRING(100),
         },
-        fecha: {
+        date: {
             type: DataTypes.DATE,
         },
         dni: {
             type: DataTypes.INTEGER,
         },
-        foto: {
+        photo: {
             type: DataTypes.STRING(500),
         }
     };
     const config = {
-        tableName: 'Usuarios',
+        tableName: 'usuarios',
         timestamps: true,
         underscored: true,
         async: true
