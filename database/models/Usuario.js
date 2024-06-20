@@ -1,29 +1,29 @@
-module.exports = function(sequelize, dataTypes) {
+module.exports = function (sequelize, DataTypes) {
     const alias = 'Usuario';
     const cols = {
         id: {
             autoIncrement: true,
             primaryKey: true,
-            type: dataTypes.INTEGER
+            type: DataTypes.INTEGER
         },
         nombre: {
-            type: dataTypes.STRING
+            type: DataTypes.STRING
 
         },   
         email: {
-            type: dataTypes.STRING(100),
+            type: DataTypes.STRING(100),
         },
         password: {
-            type: decodeURIComponentataTypes.STRING(100),
+            type: DataTypes.STRING(100),
         },
         date: {
-            type: dataTypes.DATE,
+            type: DataTypes.DATE,
         },
         dni: {
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
         },
         photo: {
-            type: dataTypes.STRING(500),
+            type: DataTypes.STRING(500),
         }
     };}
     const config = {
