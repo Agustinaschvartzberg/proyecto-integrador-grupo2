@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
     const alias = 'Comentario';
     const cols = {
         id: {
@@ -9,11 +9,11 @@ module.exports = function(sequelize, DataTypes) {
         texto: {
             type: DataTypes.STRING(100),
         },
-        //productos_id: {
-           // type: DataTypes.INTEGER,
-        //},
-        
-        usuarios_id:{
+        productos_id: {
+        type: DataTypes.INTEGER,
+        },
+
+        usuarios_id: {
             type: DataTypes.INTEGER,
         }
     };
@@ -24,17 +24,19 @@ module.exports = function(sequelize, DataTypes) {
         async: true
     };
     const comentario = sequelize.define(alias, cols, config);
-    comentario.associate = function(models){
-    comentario.belongsTo(models.Producto, {
-        as: 'productos',
-        foreignKey: 'productos_id'
-    }),
-    comentario.belongsTo(models.Usuario, {
-        as: 'usuarios',
-        foreignKey: 'usuarios_id' 
-    })
+
+    comentario.associate = function (models) {
+        comentario.belongsTo(models.Producto, {
+            as: 'productos',
+            foreignKey: 'productos_id'
+        }),
+            comentario.belongsTo(models.Usuario, {
+                as: 'usuarios',
+                foreignKey: 'usuarios_id'
+            });
+    };
     return comentario;
 }
-}
+
     
 

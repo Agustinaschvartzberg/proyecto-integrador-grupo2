@@ -16,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
         descripcion: {
             type: DataTypes.STRING(100),
         },
-        usuarios_id:{
+        usuario_id:{
             type: DataTypes.INTEGER,
         }
 
@@ -29,18 +29,17 @@ module.exports = function(sequelize, DataTypes) {
     };
     const producto = sequelize.define(alias, cols, config);
     producto.associate = function(models){
-        producto.belongsTo(models.Usario, {
-            as: 'usuarios',
-            foreignKey: 'usuarios_id'
+        producto.belongsTo(models.Usuario, {
+            as: 'usuario',
+            foreignKey: 'usuario_id'
         })
         //la foreignKey: conectar a las dos columnas (en este caso al usuario con su id, relaciona ambas tablas)
         //as define un alias para usar en el controlador 
-        //producto.hasMany(models.Comentario, {
-            //as: 'comentarios',
-            //foreignKey: 'id_post' 
-        //})
+        // producto.hasMany(models.Comentario, {
+        //     as: 'comentarios',
+        //     foreignKey: 'id_post' 
+        // })
     //} 
     }
     return producto
 };
-

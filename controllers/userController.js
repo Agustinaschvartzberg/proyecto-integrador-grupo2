@@ -4,21 +4,25 @@ const user= db.Usario;
 
 const userController = {
     login: function (req, res) {
+      console.log('en login')
       if (res.cookie("user") != undefined) {
         return res.redirect("/register");
       }
       res.render("login");
     },
     edit: function (req, res) {
+      console.log('en edit')
       res.render("profile-edit");
     },
     register: function (req, res) {
+      console.log('en register')
       if (res.cookie("user") != undefined) {
         return res.redirect("/profile");
       }
       res.render("register");
     },
     store: function (req, res) {
+      console.log('en store')
       const data = req.body;
       const escryptedPassword = bcrypt.hashSync(data.password, 10);
       const newUser = {

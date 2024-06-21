@@ -5,16 +5,19 @@ const op = db.Sequelize.Op;
 
 const productController = {
     product: function(req, res) {
-        //producto.findAll.then(function(producto){
+
         res.render('product', {producto: db.producto})
     },
     create: function(req, res) {
+      console.log('en producto create');
         res.render('product-add');
     },
     search: function (req, res) {
+      console.log('en producto search');
         res.render("search-results");
     },
     search_results: function (req, res) {
+      console.log('en producto search results');
         if (req.query.search == undefined) {
             res.redirect("/");
     }
@@ -35,7 +38,7 @@ const productController = {
       })
       .then(function (products) {
         res.render("search-results", { products: products });
-      });
+      }) .catch(err => console.log(err)) ;
   },
 };
 

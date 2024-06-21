@@ -11,5 +11,3 @@ router.get("/search", productController.search);
 router.post("/search", productController.search_results);
 
 module.exports = router;
-
-

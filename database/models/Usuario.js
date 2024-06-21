@@ -8,36 +8,38 @@ module.exports = function (sequelize, DataTypes) {
         },
         nombre: {
             type: DataTypes.STRING
-
-        },   
+        },
         email: {
-            type: DataTypes.STRING(100),
+            type: DataTypes.STRING(100)
         },
         password: {
-            type: DataTypes.STRING(100),
+            type: DataTypes.STRING(100)
         },
         date: {
-            type: DataTypes.DATE,
+            type: DataTypes.DATE
         },
         dni: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.INTEGER
         },
         photo: {
-            type: DataTypes.STRING(500),
+            type: DataTypes.STRING(500)
         }
-    };}
+    };
     const config = {
         tableName: 'usuarios',
         timestamps: true,
         underscored: true,
         async: true
     };
-    const usuario = sequelize.define(alias, cols, config);
-    usuario.associate = function(models){
-        usuario.hasMany(models.Producto, {
-            as: "productos",
-            foreignKey: "usuarios_id"
-        })
-    return usuario;
-}
+    const Usuario = sequelize.define(alias, cols, config);
+    
+    Usuario.associate = function (models) {
+        Usuario.hasMany(models.Producto, {
+            as: 'productos',
+            foreignKey: 'usuario_id'
+        });
+    };
+    
+    return Usuario;
+};
 
