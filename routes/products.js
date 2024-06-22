@@ -8,6 +8,8 @@ router.get('/add', productsController.add);
 router.post("/add", productsController.submit)
 router.get("/search", productController.search);
 router.post("/search", productController.search_results);
-router.post('/delete/:id', productsController.delete)
+router.post('/delete/:id', productsController.delete);
+router.get('/modify/:id', productsController.modify)
+router.post('/modify/:id', productsController.modificado)
 
 module.exports = router;

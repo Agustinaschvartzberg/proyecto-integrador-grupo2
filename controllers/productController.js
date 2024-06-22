@@ -103,8 +103,46 @@ submit: function (req, res) {
          return res.redirect('/');
     })
   },
-  
-}
+  comment: function (req, res) {
 
+
+    const comentario = {
+         comentarios_id: req.params.id,
+         usuarios_id: String(req.session.user.id),
+         comentarios: req.body.comentario
+    }
+
+    db.Comentario.create(comentario)
+    return res.redirect("/products/detalle/id/" + req.params.id)
+  },
+  modify: function (req, res) {
+    return res.render('product-edit', { random: req.params.id })
+    .catch(function (error) {
+      console.log(error);
+      return res.render('product-edit');
+    })
+  },
+  modificado: function (req, res){
+    let form = req.body
+    let updates = {}; 
+    if (form.photos) {
+      updates.photos = form.photos;
+    }
+    if (form.producto) {
+      updates.producto = form.producto;
+    }
+    if (form.descripcion) {
+      updates.descripcion = form.descripcion;
+    };
+    db.Producto.update(updates,
+      {where: {
+        id: req.params.id
+      },fields: Object.keys(updates)
+    })
+    .then(() => {
+      return res.redirect('/');
+    })
+  }, 
+}
 
 module.exports = productController;
