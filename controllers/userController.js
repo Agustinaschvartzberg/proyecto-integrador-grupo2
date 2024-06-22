@@ -1,11 +1,11 @@
 const db=require("../database/models")
 const bcrypt= require('bcryptjs');
-const user= db.Usario;
+
 
 const userController = {
     login: function (req, res) {
       console.log('en login')
-      if (res.cookie("user") != undefined) {
+      if (res.cookie("usuario") != undefined) {
         return res.redirect("/register");
       }
       res.render("login");

@@ -2,12 +2,50 @@
 <html lang="es">
 <%- include('partials/head') %>
   <body>
-    <%- include('partials/header') %>
+    <% if(locals.user != undefined) { %>
+      <%- include('./partials/headerLogueado.ejs') %>
+  <% } else { %>
+     <%- include('./partials/header.ejs') %>
+  <% } %>
       <div class="container products-wrapper">
         <div class="row">
           <div class="col-12">
-            <h2 class="products-title">Resultados de búsqueda</h2>
+            <h2 class="products-title">Resultados de búsqueda que coincidan: Ordenados del mas reciente al menos</h2>
+
           </div>
+
+				<section class="bloque">
+					<% if (lista != undefined && lista.length > 0) { %>
+						<% for (let i = lista.length - 1; i >= 0; i--) { %>
+							<div class="col-12 col-lg-3">
+							<section class = 'product-box'>
+									<figure class="product-box_image">
+										<img src="<%= lista[i].photo %>" alt="<%= lista[i].producto %>">
+									</figure>
+									<article class="product-box_data">
+										<h2>
+											<a href="/products/detalle/id/<%=lista[i].id%>">
+
+											<%= lista[i].producto %>
+											</a>
+										</h2>
+					
+										<p>
+											<%= lista[i].descripcionproducto %>
+										</p>
+										<h5>
+											<a href ="/profile/<%=lista[i].usuario.nombre%>" >
+											<%= lista[i].usuario.nombre %>
+										</a>
+										</h5>	
+									</article>
+								</a>
+							</section>
+						</div>
+						
+						<%} %>
+
+						<% } else {%> 
         </div>
       </div>
       <%- include('partials/footer')%>

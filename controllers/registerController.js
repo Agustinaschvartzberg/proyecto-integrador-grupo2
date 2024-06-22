@@ -1,6 +1,6 @@
 const db = require('../database/models')
 const bcrypt= require('bcryptjs');
-const user= db.Usario;
+
 
 const registerController={
     register: function (req, res) {
