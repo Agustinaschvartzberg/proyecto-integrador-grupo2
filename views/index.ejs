@@ -52,22 +52,22 @@
 							<% for (let i = 3; i >= 0; i--) { %>
 							<a href="/product">
 								<figure class="product-box_image">
-									<img src="<%= lista2[i].photo %>" alt="<%= lista2[i].producto %>">
+									<img src="<%= lista[i].photo %>" alt="<%= lista[i].producto %>">
 								</figure>
 								<article class="product-box_data">
 									<h2>
-										<a href="/productos/detalle/id/<%=lista2[i].id%>">
+										<a href="/productos/detalle/id/<%=lista[i].id%>">
 
-										<%= lista2[i].producto %>
+										<%= lista[i].producto %>
 										</a>
 									</h2>
 				
 									<p>
-										<%= lista2[i].descripcion %>
+										<%= lista[i].descripcion %>
 									</p>
 									<h5>
 										<a href ="/profile/<%=lista[i].usuario.username%>" >
-										<%= lista2[i].usuario.username %>
+										<%= lista[i].usuario.username %>
 									</a>
 									</h5>	
 								</article>
@@ -80,22 +80,22 @@
 							<% for (let i = 3; i >= 0; i--) { %>
 							<a href="/product">
 								<figure class="product-box_image">
-									<img src="<%= lista2[i].photo %>" alt="<%= lista2[i].producto %>">
+									<img src="<%= lista[i].photo %>" alt="<%= lista[i].producto %>">
 								</figure>
 								<article class="product-box_data">
 									<h2>
-										<a href="/productos/detalle/id/<%=lista2[i].id%>">
+										<a href="/productos/detalle/id/<%=lista[i].id%>">
 
-										<%= lista2[i].producto %>
+										<%= lista[i].producto %>
 										</a>
 									</h2>
 				
 									<p>
-										<%= lista2[i].descripcion %>
+										<%= lista[i].descripcion %>
 									</p>
 									<h5>
 										<a href ="/profile/<%=lista[i].usuario.username%>" >
-										<%= lista2[i].usuario.username %>
+										<%= lista[i].usuario.username %>
 									</a>
 									</h5>	
 								</article>
