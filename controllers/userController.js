@@ -14,34 +14,6 @@ const userController = {
       console.log('en edit')
       res.render("profile-edit");
     },
-    register: function (req, res) {
-      console.log('en register')
-      if (res.cookie("user") != undefined) {
-        return res.redirect("/profile");
-      }
-      res.render("register");
-    },
-    store: function (req, res) {
-      console.log('en store')
-      const data = req.body;
-      const escryptedPassword = bcrypt.hashSync(data.password, 10);
-      const newUser = {
-        nombre: data.name,
-        email: data.email,
-        password: data.escryptedPassword,
-        fecha: data.birthDate,
-        dni: data.dni,
-        foto: data.foto,
-      };
-      db.usuario
-        .create(newUser)
-        .then(function () {
-          res.redirect("/user/login");
-        })
-        .catch(function () {
-          res.redirect("/");
-        });
-    },
     profile: function (req, res) {
       const id=req.parms.id
       user.findByPk(id)
