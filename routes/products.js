@@ -3,11 +3,11 @@ var router = express.Router();
 
 var productController = require("../controllers/productController");
 
-router.get('/detalle/id/:id', productsController.show);
-router.get('/add', productsController.add);
-router.post("/add", productsController.submit)
-router.post('/delete/:id', productsController.delete);
-router.get('/modify/:id', productsController.modify)
-router.post('/modify/:id', productsController.modificado)
+router.get('/detalle/id/:id', productController.show);
+router.get('/add', productController.add);
+router.post("/add", productController.submit)
+router.post('/delete/:id', productController.delete);
+router.get('/modify/:id', productController.modify)
+router.post('/modify/:id', productController.modificado)
 
 module.exports = router;

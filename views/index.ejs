@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
-<%- include('partials/head') %>
-	<body>
-		<% if(locals.usuario != undefined) { %>
-			<%- include('./partials/headerLogueado.ejs') %>
-		<% } else { %>
-	   <%- include('./partials/header.ejs') %>
-	   <% } %>
-		<%- include('partials/header') %>
+	<%- include('partials/head') %>
+
+		<body>
+			<% if(usuario !=undefined) { %>
+				<%- include('./partials/headerLogueado.ejs') %>
+			<% } else { %>
+				<%- include('./partials/header.ejs') %>
+			<% } %>
 			<div class="banner">
 				<img src="/images/banner.png" alt="Banner de ofertas">
 			</div>
@@ -16,93 +16,40 @@
 					<div class="col-12">
 						<h2 class="products-title">Novedades</h2>
 					</div>
-					<div class="col-12 col-sm-6 col-lg-3">
-						<section class="product-box">
-							<% for (let i = lista.length - 1; i >= lista.length - 4; i--) { %>
-							<a href="/product">
-								<figure class="product-box_image">
-									<a href="/productos/detalle/id/<%=lista[i].id%>">
-
-										<img src="<%= lista[i].photo %>" alt="<%= lista[i].producto %>">										</a>
-									
-								</figure>
-								<article class="product-box_data">
-									<h2>
+					<% for (let i=0; i < (lista.length > 4 ? 4: lista.length); i++) { %>
+						<div class="col-12 col-sm-6 col-lg-3" id="productos">
+							<section class="product-box">
+								<a href="/product">
+									<figure class="product-box_image">
 										<a href="/productos/detalle/id/<%=lista[i].id%>">
 
-										<%= lista[i].producto %>
+											<img src="/images/products/<%= lista[i].photo %>"
+												height="40px" alt="<%= lista[i].producto %>">
 										</a>
-									</h2>
-				
-									<p>
-										<%= lista[i].descripcion %>
-									</p>
-									<h5>
-										<a href ="/profile/<%=lista[i].usuario.username%>" >
-										<%= lista[i].usuario.username %>
-									</a>
-									</h5>	
-								</article>
-							</a>
-						</section>
-					</div>
+
+									</figure>
+									<article class="product-box_data">
+										<h2>
+											<a href="/productos/detalle/id/<%=lista[i].id%>">
+
+												<%= lista[i].producto %>
+											</a>
+										</h2>
+
+										<p>
+											<%= lista[i].descripcion %>
+										</p>
+										<h5>
+											<a href="/profile/<%=lista[i].usuario.username%>">
+												<%= lista[i].usuario.username %>
+											</a>
+										</h5>
+									</article>
+								</a>
+							</section>
+						</div>
 					<%} %>
-					<div class="col-12 col-sm-6 col-lg-3">
-						<section class="product-box">
-							<% for (let i = 3; i >= 0; i--) { %>
-							<a href="/product">
-								<figure class="product-box_image">
-									<img src="<%= lista[i].photo %>" alt="<%= lista[i].producto %>">
-								</figure>
-								<article class="product-box_data">
-									<h2>
-										<a href="/productos/detalle/id/<%=lista[i].id%>">
-
-										<%= lista[i].producto %>
-										</a>
-									</h2>
-				
-									<p>
-										<%= lista[i].descripcion %>
-									</p>
-									<h5>
-										<a href ="/profile/<%=lista[i].usuario.username%>" >
-										<%= lista[i].usuario.username %>
-									</a>
-									</h5>	
-								</article>
-							</a>
-						</section>
-					</div>
-					<%}%>
-					<div class="col-12 col-sm-6 col-lg-3">
-						<section class="product-box">
-							<% for (let i = 3; i >= 0; i--) { %>
-							<a href="/product">
-								<figure class="product-box_image">
-									<img src="<%= lista[i].photo %>" alt="<%= lista[i].producto %>">
-								</figure>
-								<article class="product-box_data">
-									<h2>
-										<a href="/productos/detalle/id/<%=lista[i].id%>">
-
-										<%= lista[i].producto %>
-										</a>
-									</h2>
-				
-									<p>
-										<%= lista[i].descripcion %>
-									</p>
-									<h5>
-										<a href ="/profile/<%=lista[i].usuario.username%>" >
-										<%= lista[i].usuario.username %>
-									</a>
-									</h5>	
-								</article>
-							</a>
-						</section>
-					</div>
-					<%} %>
-				</div>
-			<%- include('partials/footer') %>
-	</body>
+				</div> 
+				</div> 
+				<%- include('partials/footer') %>
+		</body>
