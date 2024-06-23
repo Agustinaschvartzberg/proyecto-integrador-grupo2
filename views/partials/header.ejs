@@ -29,37 +29,20 @@
       <ul class="left-navbar">
         <li><a href="/">Todos los productos</a></li>
       </ul>
-      <% if (usuario) { %>
-        <ul class="right-navbar">
-          <li>
-            <a href="/profile">
-              <i class="fas fa-user"></i>
-              <%= usuario.name %>
-            </a>
-          </li>
-          <li>
-            <a href="/logout">
-              <i class="fas fa-sign-out-alt"></i>
-              Cerrar sesión
-            </a>
-          </li>
-        </ul>
-        <% } else { %>
-          <ul class="right-navbar">
-            <li>
-              <a href="/login">
-                <i class="fas fa-sign-in-alt"></i>
-                Iniciar sesión
-              </a>
-            </li>
-            <li>
-              <a href="/register">
-                <i class="fas fa-user-plus"></i>
-                Registrarse
-              </a>
-            </li>
-          </ul>
-          <% } %>
+      <ul class="right-navbar">
+        <li>
+          <a href="/login">
+            <i class="fas fa-sign-in-alt"></i>
+            Iniciar sesión
+          </a>
+        </li>
+        <li>
+          <a href="/register">
+            <i class="fas fa-user-plus"></i>
+            Registrarse
+          </a>
+        </li>
+      </ul>
     </nav>
   </div>
 </header>

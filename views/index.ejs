@@ -3,7 +3,7 @@
 	<%- include('partials/head') %>
 
 		<body>
-			<% if(usuario !=undefined) { %>
+			<% if(typeof usuario !== 'undefined') { %>
 				<%- include('./partials/headerLogueado.ejs') %>
 			<% } else { %>
 				<%- include('./partials/header.ejs') %>

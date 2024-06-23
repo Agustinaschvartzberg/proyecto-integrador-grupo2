@@ -34,7 +34,7 @@ const userController = {
           .then(function (usuario) {
             if (usuario) {
               if (bcrypt.compareSync(req.body.password, usuario.password)) {
-                req.session.usuario = usuario;
+                res.session.usuario = usuario;
                 if (req.body.remember) {
                   res.cookie("user", usuario.id, { maxAge: 60000 });
                 }
@@ -52,7 +52,7 @@ const userController = {
           });
       },
       logout: function (req, res) {
-        req.session.destroy();
+        res.session.destroy();
         res.clearCookie("user");
         res.redirect("/");
       },
