@@ -1,5 +1,5 @@
 var express = require('express')
-let profileEditController = require('../controllers/profileEditController')
+let profileEditController = require('../controllers/profileEdit')
 var router = express.Router(); 
 
 router.get('/', profileEditController.edit);
