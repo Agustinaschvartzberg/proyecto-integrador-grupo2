@@ -2,11 +2,11 @@ var path = require('path');
 var logger = require('morgan');
 var express = require('express');
 var createError = require('http-errors');
-var usersRouter = require('./routes/user');
 var cookieParser = require('cookie-parser');
 const session = require('express-session');
+const db = require('./database/models');
 
-
+var usersRouter = require('./routes/users');
 var indexRouter = require('./routes/index');
 var productRouter = require('./routes/products');
 let loginRouter = require('./routes/login');
@@ -14,8 +14,6 @@ let registerRouter = require('./routes/register')
 let profileRouter = require('./routes/profile')
 let profileEditRouter = require('./routes/profileEdit')
 let searchResultsRouter = require('./routes/searchResults')
-
-
 
 
 var app = express();
@@ -48,7 +46,7 @@ app.use(session(
     if (req.cookies.Galletita != undefined && req.session.usuarios == undefined){
       let datosRecordados = req.cookies.Galletita;
       db.Usuario.findByPk (datosRecordados.id)
-      .then((user)=>{
+      .then((usuarios)=>{
 
         req.session.usuarios = usuarios
         res.locals.usuarios = usuarios
@@ -64,7 +62,7 @@ app.use(session(
   
 
 app.use('/', indexRouter);
-app.use('/usuarios', usersRouter);
+//app.use('/usuarios', usersRouter);
 app.use('/productos', productRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);

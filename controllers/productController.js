@@ -1,5 +1,6 @@
 const { or } = require("sequelize");
 const db = require("../database/models");
+const {validationResult} = require("express-validator");
 const op = db.Sequelize.Op;
 
 const productController = {
@@ -11,19 +12,19 @@ const productController = {
     }
     
     let id = req.params.id;
-    db.Productos.findOne({
+    db.Producto.findOne({
          where: [{ id: id }],
          include: [
-              { association: 'comentarios', include: [{ association: 'usuarios' }] },
+              { include: [{ association: 'usuario_id' }] },
               { association: 'usuarios' }
          ]
     })
 
-         .then(function (productos) {
-              return res.render('productos', {
+         .then(function (producto) {
+              return res.render('producto', {
 
                    idUsuario : idUsuario,
-                   datosdelproducto: productos
+                   datosdelproducto: products
               })
          })
 },

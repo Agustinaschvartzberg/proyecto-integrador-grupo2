@@ -3,7 +3,7 @@ const db= require("../database/models")
 const bcryptjs = require('bcryptjs');
 
 const registerValidations = [
-    body("nombre")
+    body("name")
     .notEmpty()
     .withMessage("completar tu nombre"),
     body("email")

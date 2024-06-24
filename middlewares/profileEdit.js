@@ -6,11 +6,11 @@ const bcryptjs = require('bcryptjs');
 const profileEditValidation = [
     body("email")
     .notEmpty() 
-    .withMessage("completa algo")
+    .withMessage("completa el campo")
     .bail().isEmail()
-    .withMessage("escribi en un faormatlo valido"),
+    .withMessage("escribi en un formato valido"),
 
-    body("nombre")
+    body("name")
     .notEmpty()
     .withMessage("complera tu nombre de usuario"),
         
