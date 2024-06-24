@@ -5,14 +5,14 @@ let searchResultsController = {
         console.log('en producto search');
           res.render("search-results");
       },
+    
       search_results: function (req, res) {
         console.log('en producto search results');
           if (req.query.search == undefined) {
               res.redirect("/");
-      }
-      let search = req.query.search;
-      product
-        .findAll({
+      } else {
+        let search = req.query.search;
+         db.Producto.findAll({
           where: {
             nombre: {
               [op.like]: "%" + search + "%",
@@ -28,13 +28,14 @@ let searchResultsController = {
 
         })
 
-        .then(function (productos) {
-          return res.render("search-results", { lista: productos })  
+        .then(function (Producto) {
+          return res.render("search-results", { lista: Producto })  
         })
            .catch(err => console.log(err)) 
-           },
-    
-  showReultsforUsuarios: function (req, res) {
+           }
+      }, 
+      
+      showReultsforUsuarios: function (req, res) {
     let usuariobuscado = req.query.search
     let usbuscado = {
       where: {

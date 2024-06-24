@@ -11,42 +11,26 @@
         <div class="row">
           <div class="col-12">
             <h2 class="products-title">Resultados de búsqueda que coincidan: Ordenados del mas reciente al menos</h2>
+			<% if (products.length === 0) { %>
+				<p>No hay resultados para su criterio de búsqueda.</p>
+			<% } else { %>
+          </div class="row">
+		  <% for (let i = 0; i < products.length; i++) { %>
+			<img src="<%= products[i].photo %>" class="card-img-top" alt="<%= products[i].producto %>">
+              <div class="card-body">
+                <h5 class="card-title"><%= products[i].producto %></h5>
+                <p class="card-text"><strong>Descripción:</strong> <%= products[i].descripcion %></p>
+                <p class="card-text"><strong>Usuario:</strong> 
+					<a href="/profile/<%= products[i].usuario.nombre %>">
+						<%= products[i].usuario.nombre %></a></p>
+                <a href="/products/detalle/id/<%= products[i].id %>" class="btn btn-primary">Ver Detalle</a>
 
-          </div>
-
-				<section class="bloque">
-					<% if (lista != undefined && lista.length > 0) { %>
-						<% for (let i = lista.length - 1; i >= 0; i--) { %>
-							<div class="col-12 col-lg-3">
-							<section class = 'product-box'>
-									<figure class="product-box_image">
-										<img src="<%= lista[i].photo %>" alt="<%= lista[i].producto %>">
-									</figure>
-									<article class="product-box_data">
-										<h2>
-											<a href="/products/detalle/id/<%=lista[i].id%>">
-
-											<%= lista[i].producto %>
-											</a>
-										</h2>
-					
-										<p>
-											<%= lista[i].descripcionproducto %>
-										</p>
-										<h5>
-											<a href ="/profile/<%=lista[i].usuario.nombre%>" >
-											<%= lista[i].usuario.nombre %>
-										</a>
-										</h5>	
-									</article>
-								</a>
-							</section>
-						</div>
+				</div>
 						
-						<%} %>
-
-						<% } else {%> 
-        </div>
+				<%} %>
+  			</div>
+			<% } else {%> 
+      
       </div>
       <%- include('partials/footer')%>
   </body>

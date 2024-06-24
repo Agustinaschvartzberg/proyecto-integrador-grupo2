@@ -11,7 +11,7 @@ const productController = {
     }
     
     let id = req.params.id;
-    db.Productos.findOne({
+    db.Producto.findOne({
          where: [{ id: id }],
          include: [
               { association: 'comentarios', include: [{ association: 'usuarios' }] },
@@ -61,28 +61,32 @@ submit: function (req, res) {
         res.render("search-results");
     },
     search_results: function (req, res) {
-      console.log('en producto search results');
-        if (req.query.search == undefined) {
-            res.redirect("/");
-    }
     let search = req.query.search;
-    product
-      .findAll({
-        where: {
-          nombre: {
-            [op.like]: "%" + search + "%",
-          },
-          or: {
-            descripcion: {
-              [op.like]: "%" + search + "%",
-            },
-          },
-        },
-        order: [["created_at", "DESC"]],
-      })
-      .then(function (products) {
-        res.render("search-results", { products: products });
-      }) .catch(err => console.log(err)) ;
+
+     console.log('en producto search results');
+        if (req.query.search == undefined) {
+            return res.redirect("/");
+    }
+    db.Producto.findAll({
+      where: {
+        [op.or]: [
+          { producto: { [op.like]: "%" + search + "%" } },
+          { descripcion: { [op.like]: "%" + search + "%" } }
+        ]
+      },
+      order: [['created_at', 'DESC']],
+      include: [{ model: db.Usuario, as: 'usuario', attributes: ['nombre'] }]
+    })
+    .then(function (products) {
+      if (products.length === 0) {
+        return res.render('search-results', { products: null, mensaje: 'No hay resultados para su criterio de búsqueda' });
+      }
+      return res.render('search-results', { products: products, mensaje: null });
+    })
+    .catch(function (error) {
+      console.error(error);
+      return res.render('search-results', { products: null, mensaje: 'Error al realizar la búsqueda' });
+    });
   },
   delete: function (req, res){
     let id = req.params.id;
@@ -144,5 +148,6 @@ submit: function (req, res) {
     })
   }, 
 }
+
 
 module.exports = productController;

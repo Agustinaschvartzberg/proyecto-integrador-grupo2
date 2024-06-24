@@ -8,12 +8,12 @@ const session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var productRouter = require('./routes/products');
+let loginRouter = require('./routes/login');
 //var usersRouter = require('./routes/users');
 let registerRouter = require('./routes/register')
 let profileRouter = require('./routes/profile')
 let profileEditRouter = require('./routes/profileEdit')
 let searchResultsRouter = require('./routes/searchResults')
-let loginRouter = require('./routes/login'); 
 
 
 var app = express();
@@ -33,12 +33,12 @@ app.use(session({
 }));
 
 app.use(function(req, res, next) {
-  if (req.cookies.Galletita) {
+  if (req.cookies.Galletita  != undefined && req.session.usuarios == undefined) {
     let datosRecordados = req.cookies.Galletita;
     db.Usuario.findByPk(datosRecordados.id)
      .then((user) => {
-        req.session.users = user;
-        res.locals.users = user;
+        req.session.usuarios = usuarios;
+        res.locals.usuarios = usuarios;
         return next();
       })
      .catch((err) => {
@@ -50,15 +50,7 @@ app.use(function(req, res, next) {
   }
 });
 
-app.use(function(req, res, next) {
-  if (req.session.usuarios) {
-    res.locals.users = req.session.users;
-    return next();
-  } else {
-    return next();
-  }
-});
-  
+
 
 app.use('/', indexRouter);
 //app.use('/users', userRouter);
@@ -68,6 +60,7 @@ app.use('/profile', profileRouter)
 app.use('/profileEdit', profileEditRouter)
 app.use('/search-results', searchResultsRouter)
 app.use('/login', loginRouter);
+//app.use('/login', loginRouter);
 
 
 // catch 404 and forward to error handler

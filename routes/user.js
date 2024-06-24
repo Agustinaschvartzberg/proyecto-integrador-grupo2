@@ -4,9 +4,14 @@ var router = express.Router();
 var userController = require('../controllers/userController');
 const registerController = require('../controllers/registerController');
 
-router.get('/', loginController.index);
-router.post('/', loginController.login);
-router.post('/logout', loginController.logout);
+router.get('/login', userController.login);
 
+router.get('/register', registerController.register);
+
+router.get('/profile', userController.profile);
+
+router.get('/profile-edit', userController.edit);
+
+router.post('/register/store', registerController.store);
 
 module.exports = router;
