@@ -6,28 +6,36 @@ const op = db.Sequelize.Op;
 const productController = {
   show: function (req, res) {
 
-    let idUsuario = ''
-    if (req.session.usuario != undefined){
-         idUsuario = req.session.usuario.id
-    }
+    //let idUsuario = ''
+   // if (req.session.usuario != undefined){
+     //    idUsuario = req.session.usuario.id
+   // }
     
     let id = req.params.id;
-    db.Producto.findOne({
+    db.Producto.findByPk(id, {
          where: [{ id: id }],
          include: [
-              { include: [{ association: 'usuario_id' }] },
-              { association: 'usuarios' }
-         ]
+          { association: 'usuario' }, 
+          {
+              association: 'comentarios', 
+              include: { association: 'usuario' } 
+          }
+      ]
     })
 
          .then(function (producto) {
               return res.render('producto', {
 
-                   idUsuario : idUsuario,
-                   datosdelproducto: products
+                   //idUsuario : idUsuario,
+                   datosdelproducto: producto
               })
-         })
-},
+          .catch((error) => {
+          console.error(error);
+            });
+
+         });
+        }, 
+
 
 add: function (req, res) {
     if (req.session.usuario && req.session.usuario.id) {
@@ -55,7 +63,7 @@ submit: function (req, res) {
               console.log(error);
               return res.render('product-add');
          })
-},
+        },
 
     search: function (req, res) {
       console.log('en producto search');

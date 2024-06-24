@@ -3,8 +3,9 @@
 	<%- include('partials/head') %>
 
 		<body>
-			<% if(typeof usuario !== 'undefined') { %>
+			<% if(typeof usuarios !== 'undefined') { %>
 				<%- include('./partials/headerLogueado.ejs') %>
+				<h2 class="text-center">  %>
 			<% } else { %>
 				<%- include('./partials/header.ejs') %>
 			<% } %>

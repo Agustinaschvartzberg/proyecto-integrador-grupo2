@@ -15,7 +15,7 @@ const loginValidation = [
             })
             .then(function(usuarioentrando){
                 if(!usuarioentrando){
-                    console.log(error)
+                    throw new Error("contra incorrecta")
                 }
             })
         }
@@ -29,7 +29,7 @@ const loginValidation = [
                     const contra = Usuario.password;
                     const contraencriptada= bcryptjs.compareSync(value,contra);
                     if(!contraencriptada){
-                        console.log(error)
+                        throw new Error("contra incorrecta")
                     }                    
                 }
             })

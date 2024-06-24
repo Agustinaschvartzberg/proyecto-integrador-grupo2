@@ -32,7 +32,7 @@ module.exports = function (sequelize, DataTypes) {
         }),
             comentario.belongsTo(models.Usuario, {
                 as: 'usuarios',
-                foreignKey: 'usuarios_id' //aclaracion: PARA NO GENERAR CONFUSION, les avisamos que en la base de datos lo llamamos como usuario_id pero en usuarios y productos es usuario_id.
+                foreignKey: 'usuarios_id' //aclaracion: PARA NO GENERAR CONFUSION, les avisamos que en la base de datos de comentarios lo llamamos como usuario_id pero en usuarios y productos es usuario_id.
             });
     };
     return comentario;
