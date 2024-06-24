@@ -1,5 +1,6 @@
 const { or } = require("sequelize");
 const db = require("../database/models");
+const { validationResult } = require("express-validator");
 const op = db.Sequelize.Op;
 
 const productController = {
@@ -8,17 +9,16 @@ const productController = {
     let idUsuario = ''
     if (req.session.usuario != undefined){
          idUsuario = req.session.usuario.id
-    }
-    
-    let id = req.params.id;
-    db.Producto.findOne({
-         where: [{ id: id }],
+     
+        }    else {
+          let id = req.params.id;
+          db.Producto.findByPk(id),{ 
+            where: [{ id: id }],
          include: [
               { association: 'comentarios', include: [{ association: 'usuarios' }] },
               { association: 'usuarios' }
          ]
-    })
-
+          }        
          .then(function (productos) {
               return res.render('productos', {
 
@@ -26,9 +26,10 @@ const productController = {
                    datosdelproducto: productos
               })
          })
-},
-
-add: function (req, res) {
+        }
+      },
+    
+    add: function (req, res) {
     if (req.session.usuario && req.session.usuario.id) {
 
     }

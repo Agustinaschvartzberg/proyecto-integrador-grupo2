@@ -7,8 +7,7 @@ const indexController = {
           { association: 'usuario'}
         ],
         },
-        {order: [
-          ['created_at', 'DESC']]})
+        {order: [['created_at', 'DESC']] })
           .then(function(result) {
             // console.log(result)
             // quiero devolver una lista de productos ordenados de forma descendente

@@ -1,4 +1,5 @@
 let db = require('../database/models');
+const { validationResult } = require("express-validator");
 let op = db.Sequelize.Op;
 
 let searchResultsController = {
@@ -24,7 +25,7 @@ let searchResultsController = {
         include: [{ association: 'comentarios' }, { association: 'usuario' }]
       })
       .then(function (productos) {
-        return res.render("search-results", { lista: productos });
+        return res.render("search-results", { lista: productos , search });
       })
       .catch(err => console.log(err));
     }
