@@ -1,6 +1,5 @@
 let db = require("../database/models");
 let op = db.Sequelize.Op; 
-const { validationResult } = require("express-validator");
 let bcryptjs = require('bcryptjs');
 
 let profileEditController = { 

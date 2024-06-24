@@ -1,28 +1,28 @@
-const db=require("../database/models")
-const bcrypt= require('bcryptjs');
-const { validationResult } = require("express-validator");
-let op = db.Sequelize.Op;
+const db = require("../database/models");
+const bcrypt = require('bcryptjs');
+
 
 const userController = {
+  // login: function (req, res) {
+  //   console.log('en login')
+  //   if (res.cookie("usuario") != undefined) {
+  //     return res.redirect("/register");
+  //   }
+  //   res.render("login");
+  // },
   edit: function (req, res) {
-       console.log('en edit')
-        res.render("profile-edit");  },
+    console.log('en edit');
+    res.render("profile-edit");
+  },
   profile: function (req, res) {
-      const id=req.params.id
-       db.Usuario.findByPk(id, {
-        include: [  {
-          model: db.Producto,
-          as: 'productos',
-          order: [['created_at', 'DESC']] 
-        }
-      ]
-       })
-        .then(function(usuario){
-          res.render("profile", { usuario: usuario });
-            })
-             .catch(function(err){
-                res.send(err);
-                })
+    const id = req.parms.id;
+    db.Usuario.findByPk(id)
+      .then(function (usuario) {
+        res.render("profile", { usuario: usuario });
+      })
+      .catch(function (err) {
+        res.send(err);
+      });
   },
   login: function (req, res) {
     res.render('login');
@@ -67,14 +67,12 @@ const userController = {
         res.send(err);
       });
   },
+  logout: function (req, res) {
+    res.session.destroy();
+    res.clearCookie("user");
+    res.redirect("/");
+  },
+};
 
-    logout: function (req, res) {
-      res.session.destroy();
-   res.clearCookie("user");
-        res.redirect("/");
-     },
-  };
 
-  
-  module.exports = userController;
-  
+module.exports = userController;

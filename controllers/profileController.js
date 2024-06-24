@@ -1,5 +1,4 @@
 const db = require("../database/models");
-const { validationResult } = require("express-validator");
 const op = db.Sequelize.Op; 
 
 const profileController = { 

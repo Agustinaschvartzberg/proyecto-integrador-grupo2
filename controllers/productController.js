@@ -1,6 +1,5 @@
 const { or } = require("sequelize");
 const db = require("../database/models");
-const { validationResult } = require("express-validator");
 const op = db.Sequelize.Op;
 
 const productController = {
@@ -9,16 +8,17 @@ const productController = {
     let idUsuario = ''
     if (req.session.usuario != undefined){
          idUsuario = req.session.usuario.id
-     
-        }    else {
-          let id = req.params.id;
-          db.Producto.findByPk(id),{ 
-            where: [{ id: id }],
+    }
+    
+    let id = req.params.id;
+    db.Productos.findOne({
+         where: [{ id: id }],
          include: [
               { association: 'comentarios', include: [{ association: 'usuarios' }] },
               { association: 'usuarios' }
          ]
-          }        
+    })
+
          .then(function (productos) {
               return res.render('productos', {
 
@@ -26,10 +26,9 @@ const productController = {
                    datosdelproducto: productos
               })
          })
-        }
-      },
-    
-    add: function (req, res) {
+},
+
+add: function (req, res) {
     if (req.session.usuario && req.session.usuario.id) {
 
     }
@@ -62,32 +61,28 @@ submit: function (req, res) {
         res.render("search-results");
     },
     search_results: function (req, res) {
-    let search = req.query.search;
-
-     console.log('en producto search results');
+      console.log('en producto search results');
         if (req.query.search == undefined) {
-            return res.redirect("/");
+            res.redirect("/");
     }
-    db.Producto.findAll({
-      where: {
-        [op.or]: [
-          { producto: { [op.like]: "%" + search + "%" } },
-          { descripcion: { [op.like]: "%" + search + "%" } }
-        ]
-      },
-      order: [['created_at', 'DESC']],
-      include: [{ model: db.Usuario, as: 'usuario', attributes: ['nombre'] }]
-    })
-    .then(function (products) {
-      if (products.length === 0) {
-        return res.render('search-results', { products: null, mensaje: 'No hay resultados para su criterio de búsqueda' });
-      }
-      return res.render('search-results', { products: products, mensaje: null });
-    })
-    .catch(function (error) {
-      console.error(error);
-      return res.render('search-results', { products: null, mensaje: 'Error al realizar la búsqueda' });
-    });
+    let search = req.query.search;
+    product
+      .findAll({
+        where: {
+          nombre: {
+            [op.like]: "%" + search + "%",
+          },
+          or: {
+            descripcion: {
+              [op.like]: "%" + search + "%",
+            },
+          },
+        },
+        order: [["created_at", "DESC"]],
+      })
+      .then(function (products) {
+        res.render("search-results", { products: products });
+      }) .catch(err => console.log(err)) ;
   },
   delete: function (req, res){
     let id = req.params.id;
@@ -149,6 +144,5 @@ submit: function (req, res) {
     })
   }, 
 }
-
 
 module.exports = productController;

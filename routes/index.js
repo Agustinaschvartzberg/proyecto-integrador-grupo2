@@ -7,4 +7,3 @@ router.get('/', indexController.index);
 router.get('/index', indexController.index);
 
 module.exports = router;
-

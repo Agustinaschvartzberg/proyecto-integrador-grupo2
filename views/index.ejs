@@ -19,12 +19,12 @@
 					<% for (let i=0; i < (lista.length > 4 ? 4: lista.length); i++) { %>
 						<div class="col-12 col-sm-6 col-lg-3" id="productos">
 							<section class="product-box">
-								<a href="/products">
+								<a href="/product">
 									<figure class="product-box_image">
 										<a href="/productos/detalle/id/<%=lista[i].id%>">
 
-											<img src="/images/products/<%= lista[i].products %>"
-												height="40px" alt="<%= lista[i].photo %>">
+											<img src="/images/products/<%= lista[i].photo %>"
+												height="40px" alt="<%= lista[i].producto %>">
 										</a>
 
 									</figure>

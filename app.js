@@ -2,18 +2,21 @@ var path = require('path');
 var logger = require('morgan');
 var express = require('express');
 var createError = require('http-errors');
+var usersRouter = require('./routes/user');
 var cookieParser = require('cookie-parser');
 const session = require('express-session');
 
 
-const indexRouter = require('./routes/index');
-const productRouter = require('./routes/products');
-const usersRouter = require('./routes/users');
-const loginRouter = require('./routes/login');
-const registerRouter = require('./routes/register');
-const profileRouter = require('./routes/profile');
-const profileEditRouter = require('./routes/profileEdit');
-const searchResultsRouter = require('./routes/searchResults');
+var indexRouter = require('./routes/index');
+var productRouter = require('./routes/products');
+let loginRouter = require('./routes/login');
+let registerRouter = require('./routes/register')
+let profileRouter = require('./routes/profile')
+let profileEditRouter = require('./routes/profileEdit')
+let searchResultsRouter = require('./routes/searchResults')
+
+
+
 
 var app = express();
 app.use(logger('dev'));
@@ -25,42 +28,51 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session({
-  secret: "Agus y vicky",
-  saveUninitialized: true,
-  resave: false
-}));
-
-app.use(function(req, res, next) {
-  if (req.cookies.Galletita  != undefined && req.session.usuarios == undefined) {
-    let datosRecordados = req.cookies.Galletita;
-    db.Usuario.findByPk(datosRecordados.id)
-     .then((user) => {
-        req.session.usuarios = usuarios;
-        res.locals.usuarios = usuarios;
-        return next();
-      })
-     .catch((err) => {
-        console.log(err);
-        return next();
-      });
-  } else {
-    return next();
+app.use(session(
+  {
+    secret:"Agus y vicky",
+    saveUninitialized: true,
+    resave: false
   }
-});
+  ));
+  
+  app.use(function(req, res, next){
+    if(req.session.usuarios != undefined){
+      res.locals.usuarios = req.session.usuarios
+      return next ();
+    }
+  return next ();
+  })
+  
+  app.use(function(req, res, next){
+    if (req.cookies.Galletita != undefined && req.session.usuarios == undefined){
+      let datosRecordados = req.cookies.Galletita;
+      db.Usuario.findByPk (datosRecordados.id)
+      .then((user)=>{
 
-
+        req.session.usuarios = usuarios
+        res.locals.usuarios = usuarios
+        return next()
+      }) .catch((err)=>{
+        console.log(err)
+      });
+    } else{
+      return next()
+    }
+  }
+  )
+  
 
 app.use('/', indexRouter);
+app.use('/usuarios', usersRouter);
 app.use('/productos', productRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
-app.use('/profile', profileRouter);
-app.use('/profileEdit', profileEditRouter);
-app.use('/product/search-results', searchResultsRouter);
+app.use('/profile', profileRouter)
+app.use('/profileEdit', profileEditRouter)
+app.use('/search-results', searchResultsRouter)
 
 
-//app.use('/usuarios', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

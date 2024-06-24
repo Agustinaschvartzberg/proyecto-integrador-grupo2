@@ -10,6 +10,4 @@ router.post('/delete/:id', productController.delete);
 router.get('/modify/:id', productController.modify)
 router.post('/modify/:id', productController.modificado)
 
-
-
 module.exports = router;
