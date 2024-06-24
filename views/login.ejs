@@ -2,46 +2,32 @@
 <html lang="es">
 <%- include('partials/head') %>
   <body>
-    <%- include('partials/header') %>
-      <div class="container products-wrapper">
+     <%- include('./partials/header.ejs') %>
+
+    <div class="container products-wrapper">
         <div class="row">
-          <div class="col-12">
-            <h2 class="products-title">Ingresar</h2>
-          </div>
-          <form   class="col-12 col-md-6">
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input
-              required 
-              minlength="4"
-              type="email" 
-              name="email" 
-              id="email" 
-              class="form-control"  
-              minlength="4">
+            <div class="col-12">
+                <br><br><br><br><br>
+                <h2 class="products-title">Ingresar</h2>
             </div>
-            <div class="form-group">
-              <label for="password">Contraseña</label>
-              <input 
-              required
-              minlength="4"
-              type="password" 
-              name="password" 
-              id="password" 
-              class="form-control"  >
-            </div>
-            <div class="form-group">
-              <label for="remember">Recordarme</label>
-              <input 
-              type="checkbox" 
-              name="remember" 
-              id="remember" v
-              alue="false"  
-              /> </div>
-            <button type="submit" class="btn btn-primary">Ingresar</button>
-          </form>
+            <form action="/login" method="POST" class=""> 
+                <% if(locals.errors){ %> 
+                    <p class="error"><%= errors.message %></p>
+                <% } %>
+                <label>Email</label>
+                <input class="input" name="email" type="email" placeholder="mail" minlength="4">
+                <br><br>
+                <label>Contraseña</label>
+                <input class="input" name="contrasena" type="password" placeholder="Contraseña" minlength="4">
+                <br><br>
+                <label>Recordarme</label>
+                <input name="rememberme" class="checkbox" type="checkbox" placeholder="Recordarme">
+                <br><br>
+                <button class="boton" type="submit">Inicia sesión</button>
+            </form>
         </div>
-      </div>
-      <%- include('partials/footer') %>
+    </div>
+    <img src="/images/default-image.png" alt="" class="ingresafoto">
+    <%- include('partials/footer') %>
   </body>
 </html>

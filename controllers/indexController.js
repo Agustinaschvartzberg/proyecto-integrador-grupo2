@@ -21,7 +21,7 @@ const indexController = {
               usuarios.push(result[i].dataValues.usuario);
             }
             return res.render('index', {
-              lista: productos, comment: result.comment, usuario: usuarios
+              lista: productos, comment: result.comment
             }
           )})
           .catch(function (error) {

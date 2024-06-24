@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:8889
--- Tiempo de generación: 20-06-2024 a las 00:54:39
+-- Tiempo de generación: 23-06-2024 a las 22:47:18
 -- Versión del servidor: 5.7.39
 -- Versión de PHP: 7.4.33
 
@@ -94,16 +94,16 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `photo`, `producto`, `descripcion`, `created_at`, `updated_at`, `deleted_at`, `usuario_id`) VALUES
-(15, 'top2.png', 'ushuaia', 'top crop animal print', '2024-04-15 22:47:14', '2024-04-15 22:47:14', NULL, 1),
-(16, 'top1.png', 'alaska', 'top musculoso con volados', '2024-04-15 22:47:20', '2024-04-15 22:47:20', NULL, 2),
-(17, 'top3.png', 'rio', 'top largo con volados', '2024-04-15 22:47:25', '2024-04-15 22:47:25', NULL, 3),
-(18, 'top10.png', 'roma', 'top un solo hombro', '2024-04-15 22:47:29', '2024-04-15 22:47:29', NULL, 4),
-(19, 'top5.png', 'jamaica', 'top manga corta', '2024-04-15 22:47:36', '2024-04-15 22:47:36', NULL, 5),
-(20, 'top6.png', 'buenos aires', 'top rallado', '2024-04-15 22:47:42', '2024-04-15 22:47:42', NULL, 6),
-(21, 'top7.png', 'miami', 'top batik', '2024-04-15 22:47:49', '2024-04-15 22:47:49', NULL, 7),
-(22, 'top8.png', 'nueva york', 'top camuflado', '2024-04-15 22:47:54', '2024-04-15 22:47:54', NULL, 8),
-(23, 'top9.png', 'thailandia', 'top titanic', '2024-04-15 22:48:22', '2024-04-15 22:48:22', NULL, 9),
-(24, 'top10.png', 'roma', 'top un solo hombro', '2024-04-15 22:48:38', '2024-04-15 22:48:38', NULL, 10);
+(15, 'top2.webp', 'ushuaia', 'top crop animal print', '2024-04-15 22:47:14', '2024-06-23 22:45:34', NULL, 1),
+(16, 'top1.webp', 'alaska', 'top musculoso con volados', '2024-04-15 22:47:20', '2024-06-23 22:45:42', NULL, 2),
+(17, 'top3.webp', 'rio', 'top largo con volados', '2024-04-15 22:47:25', '2024-06-23 22:45:50', NULL, 3),
+(18, 'top10.webp', 'roma', 'top un solo hombro', '2024-04-15 22:47:29', '2024-06-23 22:45:58', NULL, 4),
+(19, 'top5.webp', 'jamaica', 'top manga corta', '2024-04-15 22:47:36', '2024-06-23 22:46:11', NULL, 5),
+(20, 'top6.webp', 'buenos aires', 'top rallado', '2024-04-15 22:47:42', '2024-06-23 22:46:19', NULL, 6),
+(21, 'top7.webp', 'miami', 'top batik', '2024-04-15 22:47:49', '2024-06-23 22:46:29', NULL, 7),
+(22, 'top8.webp', 'nueva york', 'top camuflado', '2024-04-15 22:47:54', '2024-06-23 22:46:36', NULL, 8),
+(23, 'top9.webp', 'thailandia', 'top titanic', '2024-04-15 22:48:22', '2024-06-23 22:46:45', NULL, 9),
+(24, 'top10.webp', 'roma', 'top un solo hombro', '2024-04-15 22:48:38', '2024-06-23 22:46:53', NULL, 10);
 
 -- --------------------------------------------------------
 

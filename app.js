@@ -2,20 +2,18 @@ var path = require('path');
 var logger = require('morgan');
 var express = require('express');
 var createError = require('http-errors');
-var usersRouter = require('./routes/user');
 var cookieParser = require('cookie-parser');
 const session = require('express-session');
 
 
 var indexRouter = require('./routes/index');
 var productRouter = require('./routes/products');
-// var usersRouter = require('./routes/users');
+//var usersRouter = require('./routes/users');
 let registerRouter = require('./routes/register')
 let profileRouter = require('./routes/profile')
 let profileEditRouter = require('./routes/profileEdit')
 let searchResultsRouter = require('./routes/searchResults')
-
-
+let loginRouter = require('./routes/login'); 
 
 
 var app = express();
@@ -28,49 +26,48 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session(
-  {
-    secret:"Agus y vicky",
-    saveUninitialized: true,
-    resave: false
-  }
-  ));
-  
-  app.use(function(req, res, next){
-    if(req.session.usuarios != undefined){
-      res.locals.usuarios = req.session.usuarios
-      return next ();
-    }
-  return next ();
-  })
-  
-  app.use(function(req, res, next){
-    if (req.cookies.Galletita != undefined && req.session.usuarios == undefined){
-      let datosRecordados = req.cookies.Galletita;
-      db.Usuario.findByPk (datosRecordados.id)
-      .then((user)=>{
+app.use(session({
+  secret: "Agus y vicky",
+  saveUninitialized: true,
+  resave: false
+}));
 
-        req.session.usuarios = usuarios
-        res.locals.usuarios = usuarios
-        return next()
-      }) .catch((err)=>{
-        console.log(err)
+app.use(function(req, res, next) {
+  if (req.cookies.Galletita) {
+    let datosRecordados = req.cookies.Galletita;
+    db.Usuario.findByPk(datosRecordados.id)
+     .then((user) => {
+        req.session.users = user;
+        res.locals.users = user;
+        return next();
+      })
+     .catch((err) => {
+        console.log(err);
+        return next();
       });
-    } else{
-      return next()
-    }
+  } else {
+    return next();
   }
-  )
+});
+
+app.use(function(req, res, next) {
+  if (req.session.usuarios) {
+    res.locals.users = req.session.users;
+    return next();
+  } else {
+    return next();
+  }
+});
   
 
 app.use('/', indexRouter);
-app.use('/usuarios', usersRouter);
+//app.use('/users', userRouter);
 app.use('/productos', productRouter);
-app.use('/register', registerRouter)
+app.use('/register', registerRouter);
 app.use('/profile', profileRouter)
 app.use('/profileEdit', profileEditRouter)
 app.use('/search-results', searchResultsRouter)
-
+app.use('/login', loginRouter);
 
 
 // catch 404 and forward to error handler
