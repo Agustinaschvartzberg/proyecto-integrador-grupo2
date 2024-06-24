@@ -10,21 +10,24 @@
                 <br><br><br><br><br>
                 <h2 class="products-title">Ingresar</h2>
             </div>
-            <form class="col-12 col-md-6" action="/login/store" method="POST" class=""> 
-                <% if(locals.errors){ %> 
+            <form class="col-12 col-md-6" method="POST"  action="/login/store" class=""> 
+                <div class="form-group"> 
+                    <% if(locals.errors){ %> 
                     <p class="error"><%= errors.message %></p>
                 <% } %>
                 <label>Email</label>
-                <input class="input" name="email" type="email" placeholder="mail" minlength="4">
+                <input class="form-control" name="email" type="email" placeholder="mail" minlength="4">
                 <br><br>
                 <label>Contraseña</label>
-                <input class="input" name="contrasena" type="password" placeholder="Contraseña" minlength="4">
+                <input class="form-control" name="contrasena" type="password" placeholder="Contraseña" minlength="4">
                 <br><br>
                 <label>Recordarme</label>
                 <input name="rememberme" class="checkbox" type="checkbox" placeholder="Recordarme">
                 <br><br>
                 <button class="boton" type="submit">Inicia sesión</button>
             </form>
+
+                </div>            
         </div>
     </div>
     <img src="/images/default-image.png" alt="" class="ingresafoto">

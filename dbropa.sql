@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:8889
--- Tiempo de generación: 23-06-2024 a las 22:47:18
+-- Tiempo de generación: 24-06-2024 a las 17:24:05
 -- Versión del servidor: 5.7.39
 -- Versión de PHP: 7.4.33
 
@@ -139,7 +139,12 @@ INSERT INTO `usuarios` (`id`, `nombre`, `email`, `password`, `date`, `dni`, `pho
 (8, 'Sattas', 'sattas@udesa.edu.ar', '65432', '2024-04-15', 46288487, 'foto.png', '2024-04-15 21:13:20', '2024-04-15 21:13:20', NULL),
 (9, 'Vicky Stutzbach', 'vickystut@udesa.edu.ar', '76543', '2024-04-15', 46288488, 'foto.png', '2024-04-15 21:13:49', '2024-04-15 21:13:49', NULL),
 (10, 'Sofia Attas', 'sofiaattas@udesa.edu.ar', '87654', '2024-04-15', 46288489, 'foto.png', '2024-04-15 21:14:22', '2024-04-15 21:14:22', NULL),
-(11, 'Agus Schvartzberg', 'agusschvartzberg@udesa.edu.ar', '97654', '2024-04-15', 46288480, 'foto.png', '2024-04-15 21:14:55', '2024-04-15 21:14:55', NULL);
+(11, 'Agus Schvartzberg', 'agusschvartzberg@udesa.edu.ar', '97654', '2024-04-15', 46288480, 'foto.png', '2024-04-15 21:14:55', '2024-04-15 21:14:55', NULL),
+(12, 'hola', 'hola@gmaillcom', '$2a$10$3VQezd8RHKKo/XtxSrQy8et5CtzFEUjzQXNx1lWW36vSBe0fvu0RK', NULL, 12345, NULL, '2024-06-24 03:04:44', '2024-06-24 03:04:44', NULL),
+(13, 'victoria ', 'vstutzb@gmail.com', '$2a$10$WiifgkatgDCaEUET.EpjT.ZEQwZRFwncJsTHjvPh8Gw2gbYi4gM7G', NULL, 30494920, NULL, '2024-06-24 03:59:12', '2024-06-24 03:59:12', NULL),
+(14, 'victoria ', 'vstutzb@gmail.com', '$2a$10$UJ.VUvuFqAN4.Ay7YnQujepeAss9WlBshNEkg8nRNFXR9dmdt5CJW', NULL, 30494920, NULL, '2024-06-24 04:07:10', '2024-06-24 04:07:10', NULL),
+(15, 'victoria ', 'vstutzb@gmail.com', '$2a$10$DGY60ZlfAo505wDayai9/usCL/h/LyIFrBBge8Zpwhshig2j1vSiW', NULL, 183894, NULL, '2024-06-24 16:54:51', '2024-06-24 16:54:51', NULL),
+(16, 'victoria ', 'vstutzb@gmail.com', '$2a$10$LQBt93EPUj8NJNegA0XE7eNNGqypJLq3W0O0mxxIH2Qjjul.eWHD.', NULL, 183894, NULL, '2024-06-24 17:22:49', '2024-06-24 17:22:49', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -186,7 +191,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Restricciones para tablas volcadas

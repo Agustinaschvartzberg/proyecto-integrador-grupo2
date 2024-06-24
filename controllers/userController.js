@@ -2,7 +2,6 @@ const db=require("../database/models")
 const bcrypt= require('bcryptjs');
 let op = db.Sequelize.Op;
 
-
 const userController = {
   edit: function (req, res) {
        console.log('en edit')

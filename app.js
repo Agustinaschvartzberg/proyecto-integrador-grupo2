@@ -6,15 +6,14 @@ var cookieParser = require('cookie-parser');
 const session = require('express-session');
 
 
-var indexRouter = require('./routes/index');
-var productRouter = require('./routes/products');
-let loginRouter = require('./routes/login');
-//var usersRouter = require('./routes/users');
-let registerRouter = require('./routes/register')
-let profileRouter = require('./routes/profile')
-let profileEditRouter = require('./routes/profileEdit')
-let searchResultsRouter = require('./routes/searchResults')
-
+const indexRouter = require('./routes/index');
+const productRouter = require('./routes/products');
+const usersRouter = require('./routes/users');
+const loginRouter = require('./routes/login');
+const registerRouter = require('./routes/register');
+const profileRouter = require('./routes/profile');
+const profileEditRouter = require('./routes/profileEdit');
+const searchResultsRouter = require('./routes/searchResults');
 
 var app = express();
 app.use(logger('dev'));
@@ -53,15 +52,15 @@ app.use(function(req, res, next) {
 
 
 app.use('/', indexRouter);
-//app.use('/users', userRouter);
 app.use('/productos', productRouter);
 app.use('/register', registerRouter);
-app.use('/profile', profileRouter)
-app.use('/profileEdit', profileEditRouter)
-app.use('/search-results', searchResultsRouter)
 app.use('/login', loginRouter);
-//app.use('/login', loginRouter);
+app.use('/profile', profileRouter);
+app.use('/profileEdit', profileEditRouter);
+app.use('/product/search-results', searchResultsRouter);
 
+
+//app.use('/usuarios', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
