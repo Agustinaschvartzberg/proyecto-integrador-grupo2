@@ -4,20 +4,21 @@ const bcryptjs = require('bcryptjs');
 
 
 const profileEditValidation = [
-    body("email")
-    .notEmpty() 
-    .withMessage("completa el campo")
-    .bail().isEmail()
-    .withMessage("escribi en un formato valido"),
-
     body("name")
     .notEmpty()
-    .withMessage("complera tu nombre de usuario"),
-        
+    .withMessage("debes completar tu nombre de usuario"),
+    
+    body("email")
+    .notEmpty() 
+    .withMessage("debes completar tu email")
+    .bail().isEmail()
+    .withMessage("escriba en una formato valido"),    
+   
     body("password")
     .notEmpty()
-    .withMessage("complera la contrasena")
-    .bail().isLength({min:8})
+    .withMessage("completa la contrasena")
+    .bail().isLength({min:8}).
+    withMessage("tiene que tener un minimo de 8 caracteres")
 
 ]
 

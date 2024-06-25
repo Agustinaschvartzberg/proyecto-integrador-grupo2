@@ -15,21 +15,23 @@ const loginValidation = [
             })
             .then(function(usuarioentrando){
                 if(!usuarioentrando){
-                    throw new Error("contra incorrecta")
+                    throw new Error("mail no valido")
                 }
             })
         }
     ),
-    body("password").notEmpty().withMessage("completa algo")
+    body("password")
+    .notEmpty()
+    .withMessage("completa algo")
         .bail()
         .custom(function(value, {req}){
             return db.Usuario.findOne({ where: {email:req.body.email}  })
             .then(function(Usuario){
-                if(user){
+                if(Usuario){
                     const contra = Usuario.password;
                     const contraencriptada= bcryptjs.compareSync(value,contra);
                     if(!contraencriptada){
-                        throw new Error("contra incorrecta")
+                        throw new Error("contra no valida")
                     }                    
                 }
             })

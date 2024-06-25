@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
-//const loginValidation = require ('../middlewares/login-validator') //middelwares
+const loginValidation = require ('../middlewares/loginValidator') //middelwares
 
-router.get('/', userController.login);
-//router.post("/register", loginValidation,userController.login);
+router.get('/', loginValidation, userController.login);
 router.post('/store', userController.loginStore);
 module.exports = router;
