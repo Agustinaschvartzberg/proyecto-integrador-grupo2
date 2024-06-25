@@ -8,7 +8,7 @@ const registerValidations = [
     .withMessage("completar tu nombre"),
     body("email")
         .notEmpty()
-        .withMessage("completa tu mail")
+        .withMessage("completa con tu mail")
         .bail()
         .isEmail()
         .withMessage("formato de correo valido")
@@ -16,7 +16,7 @@ const registerValidations = [
             return db.Usuario.findOne({
                 where: {email:value}
             })
-            .then(function(usuarioentrnado){
+            .then(function(usuarioentrando){
                 if(usuarioentrando){
                     throw new Error("ya hay un usuario con ese mail")
                 }
@@ -35,7 +35,7 @@ const registerValidations = [
                     const password = usuario.password;
                     const contraEncriptada= bcryptjs.compareSync(value,password);
                     if(!contraencriptada){
-                        throw new Error("contra incorrecta")
+                        throw new Error("contrasena incorrecta")
                     }                    
                 }
             })
@@ -45,3 +45,4 @@ const registerValidations = [
 ]
 
 module.exports = registerValidations;
+
