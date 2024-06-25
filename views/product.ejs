@@ -2,75 +2,31 @@
 <html lang="es">
 <%- include('partials/head') %>
   <body>
-    <% if(locals.usuarios !=undefined) { %>
-      <%- include('./partials/headerLogaeado.ejs') %>
-        <% } else { %>
-          <%- include('./partials/header.ejs') %>
-            <% } %>
+    <% if(locals.usuarios != undefined) { %>
+      <%- include('./partials/headerLogeado.ejs') %>
+  <% } else { %>
+     <%- include('./partials/header.ejs') %>
+  <% } %>
 
-      <div class="container products-wrapper">
-          <div class="d-flex align-items-center">
-          <h2 class="products-title">
-            <%=producto.producto%>
+<div class="container products-wrapper">
+	<div class="row">
+		<div class="col-12">
+			<h2 class="products-title">Editar producto</h2>
+		</div>
+		<form action="/productos/modify/<%= random  %>" method="POST" class="">
+            <label class="imagennn">IMAGEN</label>
+            <input type="text" name="photo" placeholder="LINK DE FOTO DE PRODUCTO">
+            
+            
+            <input type="text" name="producto" placeholder="NOMBRE PRODUCTO">
+            
+            
+            <input type="text" name="descripcion" placeholder="DESCRIPCION PRODUCTO">
+            
+            <button type="submit">MODIFICAR PRODUCTO</button>
+          </form>
 
-            <% if(locals.usuarios.id == producto.usuarios.id) { %>
-              
-          </h2>
-         
-          <a href="/profile/<%=datosproducto.usuarios.nombre%>">
-            <h3 class="product-detail-description"></p>
-            <%=datosproducto.usuarios.nombre%>
+	<%- include('./partials/footer') %>
+</body>
 
-          <p class="product-detail-description">
-            <a href="product-add.html">Editar</a>
-          </p>
-        </div>
-
-        <div class="product-detail">
-          <div class="row">
-            <article class="col-12 col-lg-8 product-detail-info">
-              <img src="<%=datosproducto.imagenes%>" alt="" class="product-detail-img">
-              <p class="product-detail-description">
-                <%=datosproducto.descripcion%>
-              </p>
-              <% if(idUsuario == datosproducto.usuario.id) { %>
-
-              <form action="/products/delete/<%=datosproducto.id%>" method="post" >
-                <button type="submit" >
-                  <i class="fas fa-trash"></i> Eliminar Producto
-                </button>
-                </form>
-                  <% } %>
-            </article>
-                
-              </p>
-            </article>
-            <div class="col-12 col-lg-4">
-              <section class="comments">
-                <%for (let index=0; index < producto[0].comentarios.length; index++) {%>
-                  <article>
-                    <img src=<%=producto[i].comentarios[index].imagen%> alt="">
-                    <div class="data">
-                      <p class="user">
-                        <strong><a href="/users/profile">
-                            <%=producto[i].comentarios[index].nombre%>
-                          </a></strong>
-                        <%= producto[i].comentarios[index].comentario%>
-                      </p>
-                    </div>
-                  </article>
-                  <%}%>
-
-              </section>
-              <form class="form" action="" method="POST">
-                <input class="form-input" type="text" value="" placeholder="Agregar comentario">
-                <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-              </form>
-              <hr>
-            </div>
-          </div>
-        </div>
-      </div>
-      <%- include('partials/footer') %>  
-  </body>
 </html>

@@ -30,6 +30,7 @@
               id="email"
               name="email"
               placeholder="Ingresá tu correo electrónico"
+              value="<%= locals.oldData && oldData.email ? oldData.email : null %>"
             />
             <!-- Middlewars: -->  				
             <% if (locals.errors && errors.email) { %>

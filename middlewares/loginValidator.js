@@ -26,9 +26,9 @@ const loginValidation = [
         .bail()
         .custom(function(value, {req}){
             return db.Usuario.findOne({ where: {email:req.body.email}  })
-            .then(function(Usuario){
-                if(Usuario){
-                    const contra = Usuario.password;
+            .then(function(usuarios){
+                if(usuarios){
+                    const contra = usurios.password;
                     const contraencriptada= bcryptjs.compareSync(value,contra);
                     if(!contraencriptada){
                         throw new Error("contra no valida")

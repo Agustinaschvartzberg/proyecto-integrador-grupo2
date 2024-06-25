@@ -3,7 +3,7 @@
         <a href="/index" class="main-header_home-link">
             <img src="/images/logo.png">
         </a>
-    </div>	
+    </div>
 
     <div class="col-7 col-md-6">
         <form action="/search-results" method="GET" class="search-form">
@@ -33,21 +33,23 @@
 
             <ul class="right-navbar">
                 <li><a href="/profile/<%= locals.usuarios.nombre %>">
-                    <p>Hola, <%= locals.usuarios.nombre %> <i class="fas fa-user"></i> </p>
+                        <p>Hola, <%= locals.usuarios.nombre %> <i class="fas fa-user"></i> </p>
                     </a>
                 </li>
             </ul>
 
             <ul class="right-navbar">
                 <li><a href="/profileEdit/">Editar perfil <i class="fas fa-sign-in-alt"></i></a>
-                </li>	
+                </li>
             </ul>
-            
+
 
             </a>
-        </li>
-        <li>
-            <form >
-                <button class="logout" type="submit">
-                    Cerrar sesión <i class="fas fa-sign-in-alt"></i>
-                </button>
+            </li>
+            <li>
+                <form method="POST" action="/logout">
+                    <button class="logout" type="submit">
+                        Cerrar sesión <i class="fas fa-sign-in-alt"></i>
+                    </button>
+                </form>
+            </li>

@@ -69,7 +69,8 @@ const userController = {
       });
   },
   logout: function (req, res) {
-    res.session.destroy();
+    console.log('hola estamos en logout')
+    // res.session.destroy();
     res.clearCookie("user");
     res.redirect("/");
   },
