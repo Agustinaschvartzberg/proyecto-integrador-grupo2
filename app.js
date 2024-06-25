@@ -48,7 +48,7 @@ app.use(session(
       db.Usuario.findByPk (datosRecordados.id)
       .then((usuarios)=>{
 
-        req.session.usuarios = usuarios
+        res.session.usuarios = usuarios
         res.locals.usuarios = usuarios
         return next()
       }) .catch((err)=>{

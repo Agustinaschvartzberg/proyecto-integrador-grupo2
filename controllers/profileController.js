@@ -6,15 +6,16 @@ const profileController = {
     det: function(req,res){
         let idUsuario = ''
           if (req.session.usuario != undefined){
-               idUsuario = req.session.userario.id
+               idUsuario = req.session.usuario.id
           }
         const username = req.params.username;
             db.Usuario.findOne({
-                where: [{username:username}],
+                where: [{nombre:username}],
                 include: [{ association: 'productos' }]
                 
             }).then(function(unUsuario){
-                return res.render('profile', {
+                console.log('estamos en then')
+                res.render('profile', {
                     datosUsuario: unUsuario,
                     idUsuario : idUsuario
                 }) 
