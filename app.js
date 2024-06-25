@@ -14,6 +14,7 @@ let registerRouter = require('./routes/register')
 let profileRouter = require('./routes/profile')
 let profileEditRouter = require('./routes/profileEdit')
 let searchResultsRouter = require('./routes/searchResults')
+let logoutRouter = require('./routes/logout');
 
 
 var app = express();
@@ -65,6 +66,7 @@ app.use('/', indexRouter);
 //app.use('/usuarios', usersRouter);
 app.use('/productos', productRouter);
 app.use('/register', registerRouter);
+app.use('/logout', logoutRouter)
 app.use('/login', loginRouter);
 app.use('/profile', profileRouter)
 app.use('/profileEdit', profileEditRouter)
