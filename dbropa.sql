@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:8889
--- Tiempo de generación: 24-06-2024 a las 17:24:05
+-- Tiempo de generación: 25-06-2024 a las 02:44:02
 -- Versión del servidor: 5.7.39
 -- Versión de PHP: 7.4.33
 
@@ -129,22 +129,27 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `email`, `password`, `date`, `dni`, `photo`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Agustina Schvartzberg', 'agustinaschvartzberg@gmail.com', '12345', '2024-04-15', 46288481, 'foto.png', '2024-04-15 21:02:40', '2024-04-15 21:02:40', NULL),
-(2, 'Agustina Schvartzberg', 'agustinaschvartzberg@gmail.com', '12345', '2024-04-15', 46288481, 'foto.png', '2024-04-15 21:07:49', '2024-04-15 21:07:49', NULL),
-(3, 'Sattas', 'sattas@gmail.com', '67890', '2024-04-15', 46288482, 'foto.png', '2024-04-15 21:08:42', '2024-04-15 21:08:42', NULL),
-(4, 'Vicky Stutzbach', 'vstutzbach@gmail.com', '12456', '2024-04-15', 46288483, 'foto.png', '2024-04-15 21:09:08', '2024-04-15 21:09:08', NULL),
-(5, 'Agustina Schvartzberg', 'aschvartzberg@udesa.edu.ar', '12365', '2024-04-15', 46288484, 'foto.png', '2024-04-15 21:11:29', '2024-04-15 21:11:29', NULL),
-(6, 'Sattas', 'sattas@udesa.edu.ar', '54321', '2024-04-15', 46288485, 'foto.png', '2024-04-15 21:12:03', '2024-04-15 21:12:03', NULL),
-(7, 'Sattas', 'sattas@udesa.edu.ar', '54321', '2024-04-15', 46288486, 'foto.png', '2024-04-15 21:12:49', '2024-04-15 21:12:49', NULL),
-(8, 'Sattas', 'sattas@udesa.edu.ar', '65432', '2024-04-15', 46288487, 'foto.png', '2024-04-15 21:13:20', '2024-04-15 21:13:20', NULL),
-(9, 'Vicky Stutzbach', 'vickystut@udesa.edu.ar', '76543', '2024-04-15', 46288488, 'foto.png', '2024-04-15 21:13:49', '2024-04-15 21:13:49', NULL),
-(10, 'Sofia Attas', 'sofiaattas@udesa.edu.ar', '87654', '2024-04-15', 46288489, 'foto.png', '2024-04-15 21:14:22', '2024-04-15 21:14:22', NULL),
-(11, 'Agus Schvartzberg', 'agusschvartzberg@udesa.edu.ar', '97654', '2024-04-15', 46288480, 'foto.png', '2024-04-15 21:14:55', '2024-04-15 21:14:55', NULL),
+(1, 'Agustina Schvartzberg', 'agustinaschvartzberg@gmail.com', '$2a$10$z7bVv4NGKeYXMmGh4d1PXu3Noaa4dtI012ihgtaikctDON/arOAam ', '2024-04-15', 46288481, 'foto.png', '2024-04-15 21:02:40', '2024-06-25 02:40:59', NULL),
+(2, 'Agustina Schvartzberg', 'agustinaschvartzberg@gmail.com', '$2a$10$z7bVv4NGKeYXMmGh4d1PXu3Noaa4dtI012ihgtaikctDON/arOAam ', '2024-04-15', 46288481, 'foto.png', '2024-04-15 21:07:49', '2024-06-25 02:42:19', NULL),
+(3, 'Sattas', 'sattas@gmail.com', '$2a$10$z7bVv4NGKeYXMmGh4d1PXu3Noaa4dtI012ihgtaikctDON/arOAam', '2024-04-15', 46288482, 'foto.png', '2024-04-15 21:08:42', '2024-06-25 02:42:33', NULL),
+(4, 'Vicky Stutzbach', 'vstutzbach@gmail.com', '$2a$10$z7bVv4NGKeYXMmGh4d1PXu3Noaa4dtI012ihgtaikctDON/arOAam', '2024-04-15', 46288483, 'foto.png', '2024-04-15 21:09:08', '2024-06-25 02:42:41', NULL),
+(5, 'Agustina Schvartzberg', 'aschvartzberg@udesa.edu.ar', '$2a$10$z7bVv4NGKeYXMmGh4d1PXu3Noaa4dtI012ihgtaikctDON/arOAam', '2024-04-15', 46288484, 'foto.png', '2024-04-15 21:11:29', '2024-06-25 02:42:55', NULL),
+(6, 'Sattas', 'sattas@udesa.edu.ar', '$2a$10$z7bVv4NGKeYXMmGh4d1PXu3Noaa4dtI012ihgtaikctDON/arOAam', '2024-04-15', 46288485, 'foto.png', '2024-04-15 21:12:03', '2024-06-25 02:43:04', NULL),
+(7, 'Sattas', 'sattas@udesa.edu.ar', '$2a$10$z7bVv4NGKeYXMmGh4d1PXu3Noaa4dtI012ihgtaikctDON/arOAam ', '2024-04-15', 46288486, 'foto.png', '2024-04-15 21:12:49', '2024-06-25 02:43:14', NULL),
+(8, 'Sattas', 'sattas@udesa.edu.ar', '$2a$10$z7bVv4NGKeYXMmGh4d1PXu3Noaa4dtI012ihgtaikctDON/arOAam', '2024-04-15', 46288487, 'foto.png', '2024-04-15 21:13:20', '2024-06-25 02:43:22', NULL),
+(9, 'Vicky Stutzbach', 'vickystut@udesa.edu.ar', '$2a$10$z7bVv4NGKeYXMmGh4d1PXu3Noaa4dtI012ihgtaikctDON/arOAam', '2024-04-15', 46288488, 'foto.png', '2024-04-15 21:13:49', '2024-06-25 02:43:30', NULL),
+(10, 'Sofia Attas', 'sofiaattas@udesa.edu.ar', '$2a$10$z7bVv4NGKeYXMmGh4d1PXu3Noaa4dtI012ihgtaikctDON/arOAam', '2024-04-15', 46288489, 'foto.png', '2024-04-15 21:14:22', '2024-06-25 02:43:40', NULL),
+(11, 'Agus Schvartzberg', 'agusschvartzberg@udesa.edu.ar', '$2a$10$z7bVv4NGKeYXMmGh4d1PXu3Noaa4dtI012ihgtaikctDON/arOAam', '2024-04-15', 46288480, 'foto.png', '2024-04-15 21:14:55', '2024-06-25 02:43:50', NULL),
 (12, 'hola', 'hola@gmaillcom', '$2a$10$3VQezd8RHKKo/XtxSrQy8et5CtzFEUjzQXNx1lWW36vSBe0fvu0RK', NULL, 12345, NULL, '2024-06-24 03:04:44', '2024-06-24 03:04:44', NULL),
 (13, 'victoria ', 'vstutzb@gmail.com', '$2a$10$WiifgkatgDCaEUET.EpjT.ZEQwZRFwncJsTHjvPh8Gw2gbYi4gM7G', NULL, 30494920, NULL, '2024-06-24 03:59:12', '2024-06-24 03:59:12', NULL),
 (14, 'victoria ', 'vstutzb@gmail.com', '$2a$10$UJ.VUvuFqAN4.Ay7YnQujepeAss9WlBshNEkg8nRNFXR9dmdt5CJW', NULL, 30494920, NULL, '2024-06-24 04:07:10', '2024-06-24 04:07:10', NULL),
 (15, 'victoria ', 'vstutzb@gmail.com', '$2a$10$DGY60ZlfAo505wDayai9/usCL/h/LyIFrBBge8Zpwhshig2j1vSiW', NULL, 183894, NULL, '2024-06-24 16:54:51', '2024-06-24 16:54:51', NULL),
-(16, 'victoria ', 'vstutzb@gmail.com', '$2a$10$LQBt93EPUj8NJNegA0XE7eNNGqypJLq3W0O0mxxIH2Qjjul.eWHD.', NULL, 183894, NULL, '2024-06-24 17:22:49', '2024-06-24 17:22:49', NULL);
+(16, 'victoria ', 'vstutzb@gmail.com', '$2a$10$LQBt93EPUj8NJNegA0XE7eNNGqypJLq3W0O0mxxIH2Qjjul.eWHD.', NULL, 183894, NULL, '2024-06-24 17:22:49', '2024-06-24 17:22:49', NULL),
+(17, 'hola', 'hola@gmaillcom', '$2a$10$wNSKKmeKt3MBNpCr4.ica.9zlcTWeSEdav8MEOBk.poJXrBHfaGVe', NULL, -4123, NULL, '2024-06-24 19:24:53', '2024-06-24 19:24:53', NULL),
+(18, 'hoal', 'hola@gmaillcom', '$2a$10$IUjPDCl.o3ywYwNHhzU25ecWs5pay9DcsWYtaobY15iuQ0cQvsFMW', NULL, 123559, NULL, '2024-06-24 19:25:39', '2024-06-24 19:25:39', NULL),
+(19, 'victoria ', 'hola@gmaillcom', '$2a$10$sbuWXniC32yD45rki9LaWOwKh6V4EavXBnFH1ijKKnmN2wnimwLKa', NULL, 1234, NULL, '2024-06-24 19:26:39', '2024-06-24 19:26:39', NULL),
+(20, 'hola', 'hola@gmaillcom', '$2a$10$DPthkJ5qU8atw0264A1S1uCUbIhZqQrwemOHa575IoNSpfhGJH4kK', NULL, 12345, NULL, '2024-06-24 19:27:39', '2024-06-24 19:27:39', NULL),
+(21, 'victoria ', 'vstutzb@gmail.com', '$2a$10$lkJNX1PZGTz/U4dgMB8b0ew9FMQKaZWf9r0UjRrfyxalL2e0iwTHG', NULL, 123456, NULL, '2024-06-24 19:48:43', '2024-06-24 19:48:43', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -191,7 +196,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Restricciones para tablas volcadas
