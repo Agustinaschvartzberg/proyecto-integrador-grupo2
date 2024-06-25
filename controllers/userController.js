@@ -45,15 +45,15 @@ const userController = {
             console.log('Contraseña correcta');
 
             req.session.usuario = usuario;
-            console.log('Sesión iniciada para el usuario:', usuario.id);
-
-            if (req.body.remember) {
-              res.cookie("user", usuario.id, { maxAge: 60000 });
-              console.log('Cookie "user" creada para el usuario:', usuario.id);
-            }
+            // console.log('Sesión iniciada para el usuario:', usuario.id);
+            // console.log('this is the body',req.body)
+            // if (req.body.remember) {
+              res.cookie("user", usuario, { maxAge: 60000 });
+              // console.log('Cookie "user" creada para el usuario:', usuario.id);
+            // }
 
             console.log('Redirigiendo a /profile');
-            res.redirect("/profile");
+            res.redirect("/");
           } else {
             console.log('Contraseña incorrecta');
             res.send("Contraseña incorrecta");

@@ -14,6 +14,10 @@ const indexController = {
             // quiero devolver una lista de productos ordenados de forma descendente
             // usuario es el usuario relacionado a cada producto
             // comment es el comentario relacionado a cada producto
+            console.log(req.cookies);
+            // if(req.cookies.user !== undefined ) {
+            //   res.locals.usuario = req.cookies.user;
+            // }
             const usuarios = [];
             const productos = [];
             for(let i = 0; i < result.length; i++) {
@@ -21,7 +25,8 @@ const indexController = {
               usuarios.push(result[i].dataValues.usuario);
             }
             return res.render('index', {
-              lista: productos, comment: result.comment
+              lista: productos, comment: result.comment,
+              usuarios: req.cookies.user
             }
           )})
           .catch(function (error) {
